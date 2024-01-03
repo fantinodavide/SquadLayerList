@@ -19,7 +19,6 @@ class LayerExporter(object):
     AllVehicles = {}
     LayerVehiclesAmounts = {}
     LevelAssets = {}
-    SQLevelAsset = {}
 
     def __init__(self, _export_path="", _previous_layer_filepath="", _previous_vehicle_filepath="", _previous_layer_list=None, _asset_registry=None, _FactionTable=None):
         self.asset_registry = unreal.AssetRegistryHelpers.get_asset_registry()
@@ -65,7 +64,7 @@ class LayerExporter(object):
         
             team_name = self.GetTeamName(Faction_ID)
             layer_name = Layer.get_name()
-            levelAssetPath = ""
+            levelId = ""
             if not layer_name in self.LayerVehiclesAmounts:
                 LayerGamemodeDataTable = Layer.get_editor_property("Gamemode").get_editor_property("DataTable")
                 LayerGamemodeRowName = Layer.get_editor_property("Gamemode").get_editor_property("RowName")
@@ -89,18 +88,15 @@ class LayerExporter(object):
                 if layerVersion:
                     self.LayerVehiclesAmounts[layer_name]["layerVersion"] = layerVersion.group()
                 
-                split_layer_path = Layer.get_path_name().__str__().split("/")
-                levelAssetPath = "/".join(split_layer_path[:4])
+                levelId = Layer.get_editor_property("LevelId").__str__()
                 
-                if not levelAssetPath in self.LevelAssets and "Gameplay_Layer_Data" not in levelAssetPath:
-                    self.LevelAssets[levelAssetPath] = unreal.AssetRegistryHelpers.get_asset_registry().get_assets_by_path(levelAssetPath)
-                    for levelAssetI in self.LevelAssets[levelAssetPath]:
-                        if levelAssetI.asset_class == "BP_SQLevel_C":
-                            self.SQLevelAsset[levelAssetPath] = unreal.EditorAssetLibrary.load_asset(levelAssetI.object_path)
+                if not levelId in self.LevelAssets:
+                    self.LevelAssets[levelId] = self.GetLevelByLayer(Layer)
 
-                if levelAssetPath in self.LevelAssets:
-                    self.LayerVehiclesAmounts[layer_name]["biome"] = self.SQLevelAsset[levelAssetPath].get_editor_property("Biome").name
-                    self.LayerVehiclesAmounts[layer_name]["mapName"] = self.SQLevelAsset[levelAssetPath].get_display_name().__str__()
+                if levelId in self.LevelAssets:
+                    self.LayerVehiclesAmounts[layer_name]["biome"] = self.LevelAssets[levelId].get_editor_property("Biome").name
+                    self.LayerVehiclesAmounts[layer_name]["mapName"] = self.LevelAssets[levelId].get_display_name().__str__()
+                    self.LayerVehiclesAmounts[layer_name]["mapId"] = levelId
 
             if layer_name in self.LayerVehiclesAmounts: # and team_index >= 1 and team_index <= 2:
                 self.LayerVehiclesAmounts[layer_name][f"team{team_index}"] = {}
@@ -217,6 +213,17 @@ class LayerExporter(object):
                     dep_name_str = str(dep)
                     if "LL" in dep_name_str:
                         return os.path.basename(dep_name_str)
+        return ""
+    
+    def GetLevelByLayer(self, Layer):
+        levelID = Layer.get_editor_property("LevelId").__str__()
+        LevelList = unreal.SQChunkSettings.get_default_object().get_editor_property("LevelsToCook")
+        
+        for level in LevelList:
+            levelRowName = str(level.get_editor_property("Data").get_editor_property("RowName"))
+            if levelRowName == levelID:
+                return level
+        
         return ""
     
     def GetMinimapTexture(self, Layer):
