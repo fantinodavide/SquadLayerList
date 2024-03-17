@@ -20499,6 +20499,1129 @@
       }
     },
     {
+      "Name": "Harju AAS v1",
+      "rawName": "Harju_AAS_v1",
+      "levelName": "Harju_AAS_v1",
+      "fName": "Harju_AAS_v1",
+      "gamemode": "AAS",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "LightInfantry",
+            "Motorized"
+          ]
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Mechanized"
+          ]
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      }
+    },
+    {
+      "Name": "Harju AAS v2",
+      "rawName": "Harju_AAS_v2",
+      "levelName": "Harju_AAS_v2",
+      "fName": "Harju_AAS_v2",
+      "gamemode": "AAS",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v2",
+      "factions": [
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_MO_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
+      "Name": "Harju AAS v3",
+      "rawName": "Harju_AAS_v3",
+      "levelName": "Harju_AAS_v3",
+      "fName": "Harju_AAS_v3",
+      "gamemode": "AAS",
+      "persistentLightingType": null,
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v3",
+      "factions": [
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_MO_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Invasion v1",
+      "rawName": "Harju_Invasion_v1",
+      "levelName": "Harju_Invasion_v1",
+      "fName": "Harju_Invasion_v1",
+      "gamemode": "Invasion",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_AmphibiousAssault",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "AMPHIBIOUS_ASSAULT"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 800,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "ARMORED",
+          "LIGHT_INFANTRY",
+          "MOTORIZED",
+          "SUPPORT",
+          "MECHANIZED"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Invasion v2",
+      "rawName": "Harju_Invasion_v2",
+      "levelName": "Harju_Invasion_v2",
+      "fName": "Harju_Invasion_v2",
+      "gamemode": "Invasion",
+      "persistentLightingType": "Overcast",
+      "lightingLevel": "LL_Harju_Overcastday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v2",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "LightInfantry",
+            "Motorized"
+          ]
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Mechanized"
+          ]
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 800,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Invasion v3",
+      "rawName": "Harju_Invasion_v3",
+      "levelName": "Harju_Invasion_v3",
+      "fName": "Harju_Invasion_v3",
+      "gamemode": "Invasion",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v3",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "LightInfantry",
+            "Motorized"
+          ]
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Mechanized"
+          ]
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 800,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      }
+    },
+    {
+      "Name": "Harju RAAS v1",
+      "rawName": "Harju_RAAS_v1",
+      "levelName": "Harju_RAAS_v1",
+      "fName": "Harju_RAAS_v1",
+      "gamemode": "RAAS",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "LightInfantry",
+            "Motorized"
+          ]
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_LO_CombinedArms-Boats",
+          "types": [
+            "AirAssault",
+            "Mechanized"
+          ]
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_LO_CombinedArms-Boats",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      }
+    },
+    {
+      "Name": "Harju RAAS v2",
+      "rawName": "Harju_RAAS_v2",
+      "levelName": "Harju_RAAS_v2",
+      "fName": "Harju_RAAS_v2",
+      "gamemode": "RAAS",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v2",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_LO_CombinedArms",
+          "types": [
+            "AirAssault",
+            "LightInfantry",
+            "Motorized"
+          ]
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Motorized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms",
+          "types": [
+            "AirAssault",
+            "Armored",
+            "Mechanized",
+            "Support"
+          ]
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_LO_CombinedArms",
+          "types": [
+            "AirAssault",
+            "Mechanized"
+          ]
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_LO_CombinedArms",
+          "types": [
+            "Armored",
+            "LightInfantry",
+            "Mechanized",
+            "Motorized",
+            "Support"
+          ]
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 250,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS",
+          "AIR_ASSAULT",
+          "ARMORED",
+          "MECHANIZED",
+          "SUPPORT",
+          "MOTORIZED",
+          "LIGHT_INFANTRY"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Seed v1",
+      "rawName": "Harju_Seed_v1",
+      "levelName": "Harju_Seed_v1",
+      "fName": "Harju_Seed_v1",
+      "gamemode": "Seed",
+      "persistentLightingType": "Morning",
+      "lightingLevel": "LL_Harju_Morning",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": false,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_S_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 100,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 100,
+        "disableVehicleDuringStaggingPhase": false,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Skirmish v1",
+      "rawName": "Harju_Skirmish_v1",
+      "levelName": "Harju_Skirmish_v1",
+      "fName": "Harju_Skirmish_v1",
+      "gamemode": "Skirmish",
+      "persistentLightingType": null,
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": false,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_S_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
+      "Name": "Harju Skirmish v2",
+      "rawName": "Harju_Skirmish_v2",
+      "levelName": "Harju_Skirmish_v2",
+      "fName": "Harju_Skirmish_v2",
+      "gamemode": "Skirmish",
+      "persistentLightingType": "Daytime",
+      "lightingLevel": "LL_Harju_Sunnyday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": false,
+      "layerVersion": "v2",
+      "factions": [
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_S_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_S_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 200,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
+      "Name": "Harju TC v1",
+      "rawName": "Harju_TC_v1",
+      "levelName": "Harju_TC_v1",
+      "fName": "Harju_TC_v1",
+      "gamemode": "TerritoryControl",
+      "persistentLightingType": "Overcast",
+      "lightingLevel": "LL_Harju_Overcastday",
+      "minimapTexture": "Harju_Minimap",
+      "mapId": "Harju",
+      "biome": "FOREST",
+      "mapName": "Harju",
+      "commander": true,
+      "layerVersion": "v1",
+      "factions": [
+        {
+          "factionId": "ADF",
+          "defaultUnit": "ADF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "BAF",
+          "defaultUnit": "BAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "CAF",
+          "defaultUnit": "CAF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "IMF",
+          "defaultUnit": "IMF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "RGF",
+          "defaultUnit": "RGF_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USA",
+          "defaultUnit": "USA_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "USMC",
+          "defaultUnit": "USMC_MO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionId": "VDV",
+          "defaultUnit": "VDV_MO_CombinedArms",
+          "types": []
+        }
+      ],
+      "team1": {
+        "playerPercentage": 50,
+        "tickets": 400,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      },
+      "team2": {
+        "playerPercentage": 50,
+        "tickets": 400,
+        "disableVehicleDuringStaggingPhase": true,
+        "allowedAlliances": [],
+        "allowedFactionSetupTypes": [
+          "COMBINED_ARMS"
+        ]
+      }
+    },
+    {
       "Name": "Black Coast AAS v1",
       "rawName": "BlackCoast_AAS_v1",
       "levelName": "BlackCoast_AAS_v1",
@@ -21650,1129 +22773,6 @@
       "team2": {
         "playerPercentage": 50,
         "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju AAS v1",
-      "rawName": "Harju_AAS_v1",
-      "levelName": "Harju_AAS_v1",
-      "fName": "Harju_AAS_v1",
-      "gamemode": "AAS",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "LightInfantry",
-            "Motorized"
-          ]
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Mechanized"
-          ]
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      }
-    },
-    {
-      "Name": "Harju AAS v2",
-      "rawName": "Harju_AAS_v2",
-      "levelName": "Harju_AAS_v2",
-      "fName": "Harju_AAS_v2",
-      "gamemode": "AAS",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v2",
-      "factions": [
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_MO_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju AAS v3",
-      "rawName": "Harju_AAS_v3",
-      "levelName": "Harju_AAS_v3",
-      "fName": "Harju_AAS_v3",
-      "gamemode": "AAS",
-      "persistentLightingType": null,
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v3",
-      "factions": [
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_MO_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Invasion v1",
-      "rawName": "Harju_Invasion_v1",
-      "levelName": "Harju_Invasion_v1",
-      "fName": "Harju_Invasion_v1",
-      "gamemode": "Invasion",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_AmphibiousAssault",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "AMPHIBIOUS_ASSAULT"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 800,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "ARMORED",
-          "LIGHT_INFANTRY",
-          "MOTORIZED",
-          "SUPPORT",
-          "MECHANIZED"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Invasion v2",
-      "rawName": "Harju_Invasion_v2",
-      "levelName": "Harju_Invasion_v2",
-      "fName": "Harju_Invasion_v2",
-      "gamemode": "Invasion",
-      "persistentLightingType": "Overcast",
-      "lightingLevel": "LL_Harju_Overcastday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v2",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "LightInfantry",
-            "Motorized"
-          ]
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Mechanized"
-          ]
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 800,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Invasion v3",
-      "rawName": "Harju_Invasion_v3",
-      "levelName": "Harju_Invasion_v3",
-      "fName": "Harju_Invasion_v3",
-      "gamemode": "Invasion",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v3",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "LightInfantry",
-            "Motorized"
-          ]
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Mechanized"
-          ]
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 800,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      }
-    },
-    {
-      "Name": "Harju RAAS v1",
-      "rawName": "Harju_RAAS_v1",
-      "levelName": "Harju_RAAS_v1",
-      "fName": "Harju_RAAS_v1",
-      "gamemode": "RAAS",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "LightInfantry",
-            "Motorized"
-          ]
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_LO_CombinedArms-Boats",
-          "types": [
-            "AirAssault",
-            "Mechanized"
-          ]
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_LO_CombinedArms-Boats",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      }
-    },
-    {
-      "Name": "Harju RAAS v2",
-      "rawName": "Harju_RAAS_v2",
-      "levelName": "Harju_RAAS_v2",
-      "fName": "Harju_RAAS_v2",
-      "gamemode": "RAAS",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v2",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_LO_CombinedArms",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_LO_CombinedArms",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_LO_CombinedArms",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_LO_CombinedArms",
-          "types": [
-            "AirAssault",
-            "LightInfantry",
-            "Motorized"
-          ]
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_LO_CombinedArms",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Motorized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_LO_CombinedArms",
-          "types": [
-            "AirAssault",
-            "Armored",
-            "Mechanized",
-            "Support"
-          ]
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_LO_CombinedArms",
-          "types": [
-            "AirAssault",
-            "Mechanized"
-          ]
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_LO_CombinedArms",
-          "types": [
-            "Armored",
-            "LightInfantry",
-            "Mechanized",
-            "Motorized",
-            "Support"
-          ]
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 250,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS",
-          "AIR_ASSAULT",
-          "ARMORED",
-          "MECHANIZED",
-          "SUPPORT",
-          "MOTORIZED",
-          "LIGHT_INFANTRY"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Seed v1",
-      "rawName": "Harju_Seed_v1",
-      "levelName": "Harju_Seed_v1",
-      "fName": "Harju_Seed_v1",
-      "gamemode": "Seed",
-      "persistentLightingType": "Morning",
-      "lightingLevel": "LL_Harju_Morning",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": false,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_S_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 100,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 100,
-        "disableVehicleDuringStaggingPhase": false,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Skirmish v1",
-      "rawName": "Harju_Skirmish_v1",
-      "levelName": "Harju_Skirmish_v1",
-      "fName": "Harju_Skirmish_v1",
-      "gamemode": "Skirmish",
-      "persistentLightingType": null,
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": false,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_S_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju Skirmish v2",
-      "rawName": "Harju_Skirmish_v2",
-      "levelName": "Harju_Skirmish_v2",
-      "fName": "Harju_Skirmish_v2",
-      "gamemode": "Skirmish",
-      "persistentLightingType": "Daytime",
-      "lightingLevel": "LL_Harju_Sunnyday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": false,
-      "layerVersion": "v2",
-      "factions": [
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_S_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_S_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 200,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      }
-    },
-    {
-      "Name": "Harju TC v1",
-      "rawName": "Harju_TC_v1",
-      "levelName": "Harju_TC_v1",
-      "fName": "Harju_TC_v1",
-      "gamemode": "TerritoryControl",
-      "persistentLightingType": "Overcast",
-      "lightingLevel": "LL_Harju_Overcastday",
-      "minimapTexture": "Harju_Minimap",
-      "mapId": "Harju",
-      "biome": "FOREST",
-      "mapName": "Harju",
-      "commander": true,
-      "layerVersion": "v1",
-      "factions": [
-        {
-          "factionId": "ADF",
-          "defaultUnit": "ADF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "BAF",
-          "defaultUnit": "BAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "CAF",
-          "defaultUnit": "CAF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "IMF",
-          "defaultUnit": "IMF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "RGF",
-          "defaultUnit": "RGF_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USA",
-          "defaultUnit": "USA_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "USMC",
-          "defaultUnit": "USMC_MO_CombinedArms",
-          "types": []
-        },
-        {
-          "factionId": "VDV",
-          "defaultUnit": "VDV_MO_CombinedArms",
-          "types": []
-        }
-      ],
-      "team1": {
-        "playerPercentage": 50,
-        "tickets": 400,
-        "disableVehicleDuringStaggingPhase": true,
-        "allowedAlliances": [],
-        "allowedFactionSetupTypes": [
-          "COMBINED_ARMS"
-        ]
-      },
-      "team2": {
-        "playerPercentage": 50,
-        "tickets": 400,
         "disableVehicleDuringStaggingPhase": true,
         "allowedAlliances": [],
         "allowedFactionSetupTypes": [
@@ -34755,30 +34755,6 @@
       ]
     },
     {
-      "unitName": "CIV_Motorized_1",
-      "factionId": "CIV",
-      "factionShortName": "CIV",
-      "buddyRally": false,
-      "type": "",
-      "teamSetupName": "Local Civilians that have some limited access to vehicles",
-      "actions": 0,
-      "intelOnEnemy": 3,
-      "commanderActionNearVehicle": false,
-      "vehicles": []
-    },
-    {
-      "unitName": "CIV_Unarmed_1",
-      "factionId": "CIV",
-      "factionShortName": "CIV",
-      "buddyRally": false,
-      "type": "",
-      "teamSetupName": "Local Civilians with no vehicles.",
-      "actions": 0,
-      "intelOnEnemy": 3,
-      "commanderActionNearVehicle": false,
-      "vehicles": []
-    },
-    {
       "unitName": "IMF_LD_Armored-Boats",
       "factionId": "IMF",
       "factionShortName": "IMF",
@@ -35204,10 +35180,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -35472,10 +35448,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -35698,10 +35674,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -35910,10 +35886,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -36498,10 +36474,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -36752,10 +36728,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -36950,10 +36926,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -37148,10 +37124,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -37652,10 +37628,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -37906,10 +37882,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -38118,10 +38094,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -38358,10 +38334,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -38904,10 +38880,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39144,10 +39120,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39342,10 +39318,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39498,10 +39474,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39654,10 +39630,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39768,10 +39744,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -39882,10 +39858,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -40321,10 +40297,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -40563,10 +40539,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -40763,10 +40739,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -40977,10 +40953,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -41441,10 +41417,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -41669,10 +41645,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -41855,10 +41831,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -42069,10 +42045,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -42520,10 +42496,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -42747,10 +42723,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -42932,10 +42908,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -43159,10 +43135,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -43608,10 +43584,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -43821,10 +43797,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -43992,10 +43968,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -44191,10 +44167,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -44348,10 +44324,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -44476,10 +44452,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -44604,10 +44580,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -49485,8 +49461,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49515,8 +49491,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49659,8 +49635,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49689,8 +49665,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49777,8 +49753,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49807,8 +49783,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49909,8 +49885,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49939,8 +49915,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -49954,8 +49930,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50098,8 +50074,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50128,8 +50104,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50143,8 +50119,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50231,8 +50207,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50261,8 +50237,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50276,8 +50252,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50378,8 +50354,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50408,8 +50384,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50423,8 +50399,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -50438,8 +50414,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50567,8 +50543,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50597,8 +50573,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50612,8 +50588,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -50627,8 +50603,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50700,8 +50676,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50730,8 +50706,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50745,8 +50721,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -50760,8 +50736,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -50847,8 +50823,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50877,8 +50853,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -50892,8 +50868,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51021,8 +50997,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51051,8 +51027,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51066,8 +51042,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51139,8 +51115,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51169,8 +51145,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51184,8 +51160,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51271,8 +51247,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51301,8 +51277,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51316,8 +51292,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -51331,8 +51307,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51460,8 +51436,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51490,8 +51466,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51505,8 +51481,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -51520,8 +51496,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51593,8 +51569,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51623,8 +51599,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51638,8 +51614,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -51653,8 +51629,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51755,8 +51731,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51770,8 +51746,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -51785,8 +51761,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -51914,8 +51890,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -51929,8 +51905,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -51944,8 +51920,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -52031,8 +52007,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52175,8 +52151,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52263,8 +52239,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52365,8 +52341,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52380,8 +52356,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -52539,8 +52515,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52554,8 +52530,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -52657,8 +52633,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52672,8 +52648,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -52789,8 +52765,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52804,8 +52780,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -52819,8 +52795,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -52963,8 +52939,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -52978,8 +52954,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -52993,8 +52969,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53081,8 +53057,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53096,8 +53072,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -53111,8 +53087,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53213,8 +53189,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53228,8 +53204,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53372,8 +53348,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53387,8 +53363,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53475,8 +53451,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53490,8 +53466,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53592,8 +53568,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53607,8 +53583,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -53622,8 +53598,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53724,8 +53700,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53739,8 +53715,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -53754,8 +53730,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53842,8 +53818,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53857,8 +53833,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -53872,8 +53848,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -53974,8 +53950,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -53989,8 +53965,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -54062,8 +54038,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -54077,8 +54053,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -54150,8 +54126,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -54165,8 +54141,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         }
       ]
@@ -54648,8 +54624,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -54832,8 +54808,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -54960,8 +54936,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -55524,8 +55500,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -55977,8 +55953,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -56147,8 +56123,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -56261,8 +56237,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -56770,8 +56746,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -56855,8 +56831,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -56940,8 +56916,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -66779,10 +66755,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -67173,10 +67149,10 @@
           "spawnerSize": "QUAD_BIKE",
           "icon": "map_motorcycle",
           "classNames": [
-            "BP_minsk_C",
             "BP_Minsk_blue_C",
             "BP_Minsk_green_C",
-            "BP_Minsk_black_C"
+            "BP_Minsk_black_C",
+            "BP_minsk_C"
           ]
         },
         {
@@ -68208,8 +68184,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_CTM131_Logistic_C",
-            "BP_CTM131_Logistic_Desert_C"
+            "BP_CTM131_Logistic_Desert_C",
+            "BP_CTM131_Logistic_C"
           ]
         },
         {
@@ -68223,8 +68199,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport_armed",
           "classNames": [
-            "BP_CTM131_C",
-            "BP_CTM131_Desert_C"
+            "BP_CTM131_Desert_C",
+            "BP_CTM131_C"
           ]
         },
         {
@@ -68253,8 +68229,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJY88_C",
-            "BP_CSK131_QJY88_Desert_C"
+            "BP_CSK131_QJY88_Desert_C",
+            "BP_CSK131_QJY88_C"
           ]
         },
         {
@@ -68268,8 +68244,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_CSK131_QJZ89_C",
-            "BP_CSK131_QJZ89_Desert_C"
+            "BP_CSK131_QJZ89_Desert_C",
+            "BP_CSK131_QJZ89_C"
           ]
         },
         {
@@ -68680,8 +68656,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_Cobra2_MG3_C",
-            "BP_Cobra2_MG3_Desert_C"
+            "BP_Cobra2_MG3_Desert_C",
+            "BP_Cobra2_MG3_C"
           ]
         },
         {
@@ -68903,8 +68879,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -68918,8 +68894,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -69068,8 +69044,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -69200,8 +69176,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep_antitank",
           "classNames": [
-            "BP_MATV_USMC_TOW_Woodland_C",
-            "BP_MATV_USMC_TOW_C"
+            "BP_MATV_USMC_TOW_C",
+            "BP_MATV_USMC_TOW_Woodland_C"
           ]
         },
         {
@@ -71540,8 +71516,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_Cobra2_MG3_C",
-            "BP_Cobra2_MG3_Desert_C"
+            "BP_Cobra2_MG3_Desert_C",
+            "BP_Cobra2_MG3_C"
           ]
         },
         {
@@ -71700,8 +71676,8 @@
           "spawnerSize": "CAR",
           "icon": "map_jeep",
           "classNames": [
-            "BP_Cobra2_MG3_C",
-            "BP_Cobra2_MG3_Desert_C"
+            "BP_Cobra2_MG3_Desert_C",
+            "BP_Cobra2_MG3_C"
           ]
         },
         {
@@ -73611,21 +73587,6 @@
             "BP_Cobra2_RWS_M2_Desert_C",
             "BP_Cobra2_RWS_M2_C"
           ]
-        },
-        {
-          "name": "ACV-15 25mm",
-          "rowName": "TLF_ACV15-25mm",
-          "type": "ACV-15 25mm",
-          "vehicleType": "IFV",
-          "count": 1,
-          "initialDelay": 10.0,
-          "respawnTime": 10.0,
-          "spawnerSize": "APC",
-          "icon": "map_trackedifv",
-          "classNames": [
-            "BP_ACV-15_Desert_C",
-            "BP_ACV-15_C"
-          ]
         }
       ]
     },
@@ -73692,8 +73653,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -73707,8 +73668,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -73767,8 +73728,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -73809,8 +73770,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -73824,8 +73785,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -73839,8 +73800,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -73914,8 +73875,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -73998,8 +73959,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74013,8 +73974,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74028,8 +73989,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74103,8 +74064,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -74131,8 +74092,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74146,8 +74107,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74161,8 +74122,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74236,8 +74197,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -74278,8 +74239,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74308,8 +74269,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74323,8 +74284,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74398,8 +74359,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -74482,8 +74443,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74512,8 +74473,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74527,8 +74488,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74602,8 +74563,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -74630,8 +74591,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74660,8 +74621,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74675,8 +74636,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74750,8 +74711,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -74792,8 +74753,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74807,8 +74768,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74822,8 +74783,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74882,8 +74843,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -74966,8 +74927,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -74981,8 +74942,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -74996,8 +74957,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75056,8 +75017,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -75084,8 +75045,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75099,8 +75060,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75114,8 +75075,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75174,8 +75135,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -75216,8 +75177,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75231,8 +75192,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75291,8 +75252,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -75375,8 +75336,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75390,8 +75351,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75450,8 +75411,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -75492,8 +75453,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75507,8 +75468,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75582,8 +75543,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -75666,8 +75627,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75681,8 +75642,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75756,8 +75717,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -75784,8 +75745,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75799,8 +75760,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -75874,8 +75835,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -75931,8 +75892,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -75946,8 +75907,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76021,8 +75982,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -76120,8 +76081,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76135,8 +76096,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76210,8 +76171,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -76253,8 +76214,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76268,8 +76229,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76343,8 +76304,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -76385,8 +76346,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76400,8 +76361,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76460,8 +76421,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -76544,8 +76505,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76559,8 +76520,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76619,8 +76580,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         }
       ]
@@ -76647,8 +76608,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76662,8 +76623,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76722,8 +76683,8 @@
           "spawnerSize": "MBT",
           "icon": "map_tank",
           "classNames": [
-            "BP_M1A2_C",
-            "BP_M1A2_Woodland_C"
+            "BP_M1A2_Woodland_C",
+            "BP_M1A2_C"
           ]
         },
         {
@@ -76764,8 +76725,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76779,8 +76740,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76852,8 +76813,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76867,8 +76828,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -76940,8 +76901,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_transport",
           "classNames": [
-            "BP_US_Util_Woodland_C",
-            "BP_US_Util_Desert_C"
+            "BP_US_Util_Desert_C",
+            "BP_US_Util_Woodland_C"
           ]
         },
         {
@@ -76955,8 +76916,8 @@
           "spawnerSize": "APC",
           "icon": "map_truck_logistics",
           "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
+            "BP_US_Util_Desert_Logi_C",
+            "BP_US_Util_Woodland_Logi_C"
           ]
         },
         {
@@ -81880,8 +81841,23 @@
           "rowName": "VDV_T-72B3",
           "type": "T-72B3",
           "vehicleType": "MBT",
-          "count": 2,
-          "initialDelay": 0.0,
+          "count": 1,
+          "initialDelay": 10.0,
+          "respawnTime": 20.0,
+          "spawnerSize": "MBT",
+          "icon": "map_tank",
+          "classNames": [
+            "BP_T72B3_C",
+            "BP_T72B3_Desert_C"
+          ]
+        },
+        {
+          "name": "T-72B3",
+          "rowName": "VDV_T-72B3",
+          "type": "T-72B3",
+          "vehicleType": "MBT",
+          "count": 1,
+          "initialDelay": 20.0,
           "respawnTime": 20.0,
           "spawnerSize": "MBT",
           "icon": "map_tank",
@@ -82054,8 +82030,23 @@
           "rowName": "VDV_T-72B3",
           "type": "T-72B3",
           "vehicleType": "MBT",
-          "count": 2,
-          "initialDelay": 0.0,
+          "count": 1,
+          "initialDelay": 10.0,
+          "respawnTime": 20.0,
+          "spawnerSize": "MBT",
+          "icon": "map_tank",
+          "classNames": [
+            "BP_T72B3_C",
+            "BP_T72B3_Desert_C"
+          ]
+        },
+        {
+          "name": "T-72B3",
+          "rowName": "VDV_T-72B3",
+          "type": "T-72B3",
+          "vehicleType": "MBT",
+          "count": 1,
+          "initialDelay": 20.0,
           "respawnTime": 20.0,
           "spawnerSize": "MBT",
           "icon": "map_tank",
@@ -82172,8 +82163,23 @@
           "rowName": "VDV_T-72B3",
           "type": "T-72B3",
           "vehicleType": "MBT",
-          "count": 2,
-          "initialDelay": 0.0,
+          "count": 1,
+          "initialDelay": 10.0,
+          "respawnTime": 20.0,
+          "spawnerSize": "MBT",
+          "icon": "map_tank",
+          "classNames": [
+            "BP_T72B3_C",
+            "BP_T72B3_Desert_C"
+          ]
+        },
+        {
+          "name": "T-72B3",
+          "rowName": "VDV_T-72B3",
+          "type": "T-72B3",
+          "vehicleType": "MBT",
+          "count": 1,
+          "initialDelay": 20.0,
           "respawnTime": 20.0,
           "spawnerSize": "MBT",
           "icon": "map_tank",
@@ -86104,46 +86110,6 @@
           ]
         }
       ]
-    },
-    {
-      "unitName": "TestFactionSetupA",
-      "factionId": "TestFactionA",
-      "factionShortName": "TestFactionA",
-      "buddyRally": false,
-      "type": "COMBINED_ARMS",
-      "teamSetupName": "TestFactionSetupA",
-      "actions": 0,
-      "intelOnEnemy": 3,
-      "commanderActionNearVehicle": false,
-      "vehicles": [
-        {
-          "name": "M939 Logistics",
-          "rowName": "USA_M939-LOG",
-          "type": "M939 Logistics",
-          "vehicleType": "LOGI",
-          "count": 0,
-          "initialDelay": 0,
-          "respawnTime": 0,
-          "spawnerSize": "APC",
-          "icon": "map_truck_logistics",
-          "classNames": [
-            "BP_US_Util_Woodland_Logi_C",
-            "BP_US_Util_Desert_Logi_C"
-          ]
-        }
-      ]
-    },
-    {
-      "unitName": "TestFactionSetupB",
-      "factionId": "TestFactionB",
-      "factionShortName": "TestFactionB",
-      "buddyRally": false,
-      "type": "COMBINED_ARMS",
-      "teamSetupName": "TestFactionSetupB",
-      "actions": 0,
-      "intelOnEnemy": 3,
-      "commanderActionNearVehicle": false,
-      "vehicles": []
     }
   ]
 }

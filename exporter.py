@@ -1,3 +1,13 @@
+##########################
+##  CONFIGURATION HERE  ##
+##########################
+
+LAYER_PREFIX_FILTER = [] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
+
+##########################
+## END OF CONFIGURATION ##
+##########################
+
 import csv
 import unreal
 import inspect
@@ -10,6 +20,7 @@ from string import digits
 import sys
 
 class LayerExporter(object):
+    RequiredOutputFactions = []
     FactionTracker = {}
     LegendTracker = {}
     ChangesTracker = {}
@@ -39,7 +50,7 @@ class LayerExporter(object):
         levelId = Layer.get_editor_property("LevelId").__str__()
         
         if levelId not in self.LevelAssets:
-            print(f"Unable to find {levelId} in LevelAssets")
+            # print(f"Unable to find {levelId} in LevelAssets")
             return
         
         team_index = 0
@@ -59,8 +70,10 @@ class LayerExporter(object):
         self.LayersData[layer_name]["rawName"] = LayerRowName.__str__()
         self.LayersData[layer_name]["levelName"] = LayerRowName.__str__()
         self.LayersData[layer_name]["fName"] = Layer.get_fname().__str__()
-        # self.LayersData[layer_name]["modId"] = Layer.mod_id
+        # self.LayersData[layer_name]["modId"] = modId
         self.LayersData[layer_name]["gamemode"] = LayerGamemodeRowName.__str__()
+        
+        print(Layer.get_mod_id())
         
         self.LayersData[layer_name]["persistentLightingType"] = PersistentLightingType
         self.LayersData[layer_name]["lightingLevel"] = self.GetLightingLayerName(Layer)
@@ -72,7 +85,7 @@ class LayerExporter(object):
         self.LayersData[layer_name]["mapName"] = self.LevelAssets[levelId].get_display_name().__str__()
         
         self.LayersData[layer_name]["commander"] = not Layer.game_flags.commander_disabled
-        print(Layer.game_flags)
+        # print(Layer.game_flags)
 
         layerVersionRegex = re.compile(r"v\d+$", flags=re.IGNORECASE)
         layerVersion = layerVersionRegex.search(layer_name)
@@ -118,13 +131,18 @@ class LayerExporter(object):
             if factionStruct.faction:
                 faction["defaultUnit"] = factionStruct.faction.get_editor_property("Data").get_editor_property("RowName").__str__()
 
+            self.RequiredOutputFactions.append(faction["factionId"])
             
             self.LayersData[layer_name]["factions"].append(faction)
     
-    def enumToValue(x, enum):
-        return enum.__str__().split('.')[1].split(':')[0]
+    def enumToValue(self, enum):
+        # print(enum)
+        if(type(enum) == str):
+            return enum
+        else:
+            return enum.name
     
-    def enumToIndex(x, enum):
+    def enumToIndex(self, enum):
         return int(enum.__str__().split('.')[1].split(':')[1])
     
     def GetGameplayLayerPath(self, Layer):
@@ -180,7 +198,7 @@ class LayerExporter(object):
                 Result += " @ " + str(InitialDelay).split('.')[0] + "min"
 
         return Result
-
+    
     def Contains(self, ID, Name):
         Name = Name.replace(' ', '')
         index = int(0)
@@ -222,8 +240,30 @@ class LayerExporter(object):
         for rawAsset in rawAssets:
             asset = rawAsset.get_asset()
             assetName = asset.get_editor_property("Data").get_editor_property("RowName").__str__()
+            factionId = asset.get_editor_property("FactionId").__str__()
+            if factionId not in self.RequiredOutputFactions:
+                continue
             self.FactionSetupAssets[assetName] = asset
         return self.FactionSetupAssets
+    
+    def LoadLayerList(self):
+        asset_filter = unreal.ARFilter(class_names=["BP_SQLayer_C"])
+        Layerslist = []
+        for rawAsset in self.asset_registry.get_assets(asset_filter):
+            asset = rawAsset.get_asset()
+            LayerRowName = asset.get_editor_property("Data").get_editor_property("RowName").__str__()
+            
+            keep = len(LAYER_PREFIX_FILTER) == 0
+            
+            for prefix in LAYER_PREFIX_FILTER:
+                if LayerRowName.startswith(prefix):
+                    keep = True
+            
+            if not keep:
+                continue
+            
+            Layerslist.append(rawAsset)
+        return Layerslist
     
     def GenerateFactionSetupList(self):
         for factionName in self.FactionSetupAssets:
@@ -300,11 +340,9 @@ class LayerExporter(object):
                     VehicleCount = VehicleCountData.get_editor_property("BaseAvailability")
             
                 vehName = VehicleName.__str__().strip()
-                vehType = VehicleType.__str__().split('.')[1].split(':')[0]
+                vehType = self.enumToValue(VehicleType) #.__str__().split('.')[1].split(':')[0]
             
                 self.FactionSetupData[factionName]["vehicles"].append({"name": vehName, "rowName": VehicleRowName, "type": vehName, "vehicleType": vehType, "count": VehicleCount, "initialDelay": InitialDelay, "respawnTime": RespawnTime, "spawnerSize": SpawnerSize, "icon": VehicleIcon, "classNames": vehicleBlueprints})
-            
-            
 
     def ExportToJSON(self):        
         contentDir = unreal.Paths.engine_content_dir()
@@ -320,15 +358,9 @@ class LayerExporter(object):
         self.LoadLevelList()
         print("Number of Levels: " + str(len(self.LevelAssets)))
         
-        asset_filter = unreal.ARFilter(class_names=["BP_SQLayer_C"])
-        Layerslist = self.asset_registry.get_assets(asset_filter)
+        Layerslist = self.LoadLayerList()
         number_of_layers = len(Layerslist)
         print("Number of Layers: " + str(number_of_layers))
-        
-        self.LoadFactionSetups()
-        print("Number of FactionSetups: " + str(len(self.FactionSetupAssets)))
-        self.GenerateFactionSetupList()
-
 
         with unreal.ScopedSlowTask(len(Layerslist), "Generating JSON list") as slow_task:                
             slow_task.make_dialog(True)
@@ -341,7 +373,11 @@ class LayerExporter(object):
                 self.ExportLayerData(asset)
                 asset_id += 1
                 slow_task.enter_progress_frame(1)
-            
+
+            self.LoadFactionSetups()
+            print("Number of FactionSetups: " + str(len(self.FactionSetupAssets)))
+            self.GenerateFactionSetupList()
+
             with open(save_path, 'w') as f:
                 json.dump({
                     "Maps": list(self.LayersData.values()),
