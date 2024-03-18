@@ -14,12 +14,15 @@ import inspect
 import json
 import re
 import os
+import configparser
 
 from string import digits
 
 import sys
 
 class LayerExporter(object):
+    DefaultGameSettings = {}
+    
     RequiredOutputFactions = []
     FactionTracker = {}
     LegendTracker = {}
@@ -344,6 +347,20 @@ class LayerExporter(object):
             
                 self.FactionSetupData[factionName]["vehicles"].append({"name": vehName, "rowName": VehicleRowName, "type": vehName, "vehicleType": vehType, "count": VehicleCount, "initialDelay": InitialDelay, "respawnTime": RespawnTime, "spawnerSize": SpawnerSize, "icon": VehicleIcon, "classNames": vehicleBlueprints})
 
+    def GetDefaultGameSettings(self):
+        config_path = unreal.Paths.convert_relative_path_to_full(unreal.Paths.combine([unreal.Paths.source_config_dir(), "DefaultGame.ini"]))
+        print(f"Default Editor Config Path: {config_path}")
+        print(f"Generated Config Dir: {unreal.Paths.generated_config_dir()}")
+        print(f"Source Config Dir: {unreal.Paths.source_config_dir()}")
+        print(f"Project Config Dir: {unreal.Paths.project_config_dir()}")
+        config = configparser.ConfigParser(strict=False)
+        with open(config_path, 'r', encoding='utf-16') as f:
+            config.read_file(f)
+        self.DefaultGameSettings["ProjectName"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectName', fallback='Not Found').__str__()
+        print(f"Project Name: {self.DefaultGameSettings['ProjectName']}")
+        self.DefaultGameSettings["ProjectVersion"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectVersion', fallback='Not Found').__str__()
+        print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
+
     def ExportToJSON(self):        
         contentDir = unreal.Paths.engine_content_dir()
 
@@ -354,6 +371,7 @@ class LayerExporter(object):
         print(f"Engine content dir: {contentDir}")
         print("Base Path: " + self.export_path)
         print("Layer JSON Output Path: " + save_path)
+        self.GetDefaultGameSettings()
         
         self.LoadLevelList()
         print("Number of Levels: " + str(len(self.LevelAssets)))
@@ -380,6 +398,7 @@ class LayerExporter(object):
 
             with open(save_path, 'w') as f:
                 json.dump({
+                    "DefaultGameSettings": self.DefaultGameSettings,
                     "Maps": list(self.LayersData.values()),
                     "Factions": list(self.FactionSetupData.values())
                 }, f, indent=2)
