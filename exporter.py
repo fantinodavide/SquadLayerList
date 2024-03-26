@@ -24,12 +24,14 @@ class LayerExporter(object):
     DefaultGameSettings = {}
     
     RequiredOutputFactions = []
+    LayersSoftDependencies = []
     FactionTracker = {}
     LegendTracker = {}
     ChangesTracker = {}
     AllVehicles = {}
     LevelAssets = {}
     FactionSetupAssets = {}
+    MeleeWeapons = []
     
     LayersData = {}
     FactionSetupData = {}
@@ -55,6 +57,8 @@ class LayerExporter(object):
         if levelId not in self.LevelAssets:
             # print(f"Unable to find {levelId} in LevelAssets")
             return
+
+        self.GetLayerSoftDependencies(Layer)
         
         team_index = 0
         
@@ -238,14 +242,14 @@ class LayerExporter(object):
         return self.LevelAssets
     
     def LoadFactionSetups(self):
-        asset_filter = unreal.ARFilter(class_names=["BP_SQFactionSetup_C"])
+        asset_filter = unreal.ARFilter(class_names=["BP_SQFactionSetup_C"], package_names=self.LayersSoftDependencies)
         rawAssets = self.asset_registry.get_assets(asset_filter)
         for rawAsset in rawAssets:
             asset = rawAsset.get_asset()
             assetName = asset.get_editor_property("Data").get_editor_property("RowName").__str__()
             factionId = asset.get_editor_property("FactionId").__str__()
-            if factionId not in self.RequiredOutputFactions:
-                continue
+            # if factionId not in self.RequiredOutputFactions:
+            #     continue
             self.FactionSetupAssets[assetName] = asset
         return self.FactionSetupAssets
     
@@ -289,10 +293,10 @@ class LayerExporter(object):
             self.FactionSetupData[factionName]["intelOnEnemy"] = FactionSetup.get_editor_property("Intelligence On Enemy")
             self.FactionSetupData[factionName]["commanderActionNearVehicle"] = FactionSetup.get_editor_property("CanUseCommanderActionNearVehicle")
             
+            self.FactionSetupData[factionName]["roles"] = []
             self.FactionSetupData[factionName]["vehicles"] = []
             
             Vehicles = FactionSetup.get_editor_property("Vehicles")
-            
             for Vehicle in Vehicles:
                 VehicleBlueprint = ""
                 VehicleSettings = Vehicle.get_editor_property("Setting")
@@ -347,6 +351,80 @@ class LayerExporter(object):
             
                 self.FactionSetupData[factionName]["vehicles"].append({"name": vehName, "rowName": VehicleRowName, "type": vehName, "vehicleType": vehType, "count": VehicleCount, "initialDelay": InitialDelay, "respawnTime": RespawnTime, "spawnerSize": SpawnerSize, "icon": VehicleIcon, "classNames": vehicleBlueprints})
 
+            Roles = FactionSetup.get_editor_property("Roles")
+            
+            count = 0
+            for Role in Roles:
+                RoleSettings = Role.get_editor_property("Setting")
+                RoleObj = {}
+                
+                if RoleSettings != None:
+                    DataTable = RoleSettings.get_editor_property("Data").get_editor_property("DataTable")
+                    RowName = str(RoleSettings.get_editor_property("Data").get_editor_property("RowName"))
+                    RoleObj["rowName"] = RowName
+
+                    RoleObj["inventory"] = []
+                    Inventory = RoleSettings.get_editor_property("Inventory")
+                    if Inventory is not None:
+                        slotIndex = -1
+                        for inventorySlot in Inventory:
+                            slotIndex += 1
+                            items = inventorySlot.weapon_items
+                            itemIndex = -1
+                            for item in items:
+                                itemIndex += 1
+                                ItemObj = {}
+                                # print(item.__dir__())
+                                
+                                # if count == 0:
+                                #     print(item.equipable_item.__dir__())
+                                
+                                ItemObj["className"] =  unreal.Paths.get_extension(item.equipable_item.get_path_name())
+                                # ItemObj["parentClassName"] =  item.equipable_item.static_class().__str__()
+                                ItemObj["isMelee"] = self.IsMeleeWeapon(item.equipable_item)
+                                ItemObj["slotIndex"] = slotIndex
+                                ItemObj["itemIndex"] = itemIndex
+                                ItemObj["minimum_count_on_spawn"] = item.minimum_count_on_spawn
+                                ItemObj["max_allowed_in_inventory"] = item.max_allowed_in_inventory
+                                ItemObj["cannot_rearm"] = item.cannot_rearm
+                                RoleObj["inventory"].append(ItemObj)
+                    
+                self.FactionSetupData[factionName]["roles"].append(RoleObj)
+            
+    def GetHardDependencies(self, item):
+        package_name = unreal.Paths.set_extension(item.get_path_name(),"")
+        deps = []
+        dependency_options = unreal.AssetRegistryDependencyOptions(False, True, False, False, False)
+        dependencies = self.asset_registry.get_dependencies(package_name, dependency_options)
+        if dependencies != None:
+            for dep in dependencies:
+                if dep != None:
+                    dep_name_str = str(dep)
+                    deps.append(dep_name_str)
+        return deps
+    
+    def GetLayerSoftDependencies(self, layer):
+        package_name = unreal.Paths.set_extension(layer.get_path_name(),"")
+        dependency_options = unreal.AssetRegistryDependencyOptions(True, False, False, False, False)
+        dependencies = self.asset_registry.get_dependencies(package_name, dependency_options)
+        if dependencies != None:
+            for dep in dependencies:
+                if dep != None:
+                    if dep not in self.LayersSoftDependencies:
+                        self.LayersSoftDependencies.append(dep)
+        return self.LayersSoftDependencies        
+
+    def IsMeleeWeapon(self, inventoryItem):
+        deps = self.GetHardDependencies(inventoryItem)
+
+        for dep in deps:
+            if "BP_GenericMelee" in dep:
+                wpName = unreal.Paths.get_extension(inventoryItem.get_path_name())
+                if wpName not in self.MeleeWeapons:
+                    self.MeleeWeapons.append(wpName)
+                return True
+        return False
+
     def GetDefaultGameSettings(self):
         config_path = unreal.Paths.convert_relative_path_to_full(unreal.Paths.combine([unreal.Paths.source_config_dir(), "DefaultGame.ini"]))
         print(f"Default Editor Config Path: {config_path}")
@@ -400,7 +478,8 @@ class LayerExporter(object):
                 json.dump({
                     "DefaultGameSettings": self.DefaultGameSettings,
                     "Maps": list(self.LayersData.values()),
-                    "Factions": list(self.FactionSetupData.values())
+                    "Factions": list(self.FactionSetupData.values()),
+                    "MeleeWeapons": self.MeleeWeapons
                 }, f, indent=2)
 
         return self.export_path
