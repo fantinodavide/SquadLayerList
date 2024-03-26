@@ -31,6 +31,7 @@ class LayerExporter(object):
     AllVehicles = {}
     LevelAssets = {}
     FactionSetupAssets = {}
+    Roles = {}
     MeleeWeapons = []
     
     LayersData = {}
@@ -362,6 +363,11 @@ class LayerExporter(object):
                     DataTable = RoleSettings.get_editor_property("Data").get_editor_property("DataTable")
                     RowName = str(RoleSettings.get_editor_property("Data").get_editor_property("RowName"))
                     RoleObj["rowName"] = RowName
+                    
+                    self.FactionSetupData[factionName]["roles"].append(RowName)
+                    
+                    if RowName in self.Roles:
+                        continue
 
                     RoleObj["inventory"] = []
                     Inventory = RoleSettings.get_editor_property("Inventory")
@@ -388,8 +394,9 @@ class LayerExporter(object):
                                 ItemObj["max_allowed_in_inventory"] = item.max_allowed_in_inventory
                                 ItemObj["cannot_rearm"] = item.cannot_rearm
                                 RoleObj["inventory"].append(ItemObj)
+                    self.Roles[RowName] = RoleObj
                     
-                self.FactionSetupData[factionName]["roles"].append(RoleObj)
+                
             
     def GetHardDependencies(self, item):
         package_name = unreal.Paths.set_extension(item.get_path_name(),"")
@@ -479,6 +486,7 @@ class LayerExporter(object):
                     "DefaultGameSettings": self.DefaultGameSettings,
                     "Maps": list(self.LayersData.values()),
                     "Factions": list(self.FactionSetupData.values()),
+                    "Roles": list(self.Roles.values()),
                     "MeleeWeapons": self.MeleeWeapons
                 }, f, indent=2)
 
