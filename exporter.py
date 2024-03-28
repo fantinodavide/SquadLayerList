@@ -385,9 +385,10 @@ class LayerExporter(object):
                                 # if count == 0:
                                 #     print(item.equipable_item.__dir__())
                                 
-                                ItemObj["className"] =  unreal.Paths.get_extension(item.equipable_item.get_path_name())
-                                # ItemObj["parentClassName"] =  item.equipable_item.static_class().__str__()
-                                ItemObj["isMelee"] = self.IsMeleeWeapon(item.equipable_item)
+                                if item.equipable_item is not None:
+                                    ItemObj["className"] =  unreal.Paths.get_extension(item.equipable_item.get_path_name())
+                                    # ItemObj["parentClassName"] =  item.equipable_item.static_class().__str__()
+                                    ItemObj["isMelee"] = self.IsMeleeWeapon(item.equipable_item)
                                 ItemObj["slotIndex"] = slotIndex
                                 ItemObj["itemIndex"] = itemIndex
                                 ItemObj["minimum_count_on_spawn"] = item.minimum_count_on_spawn
@@ -439,12 +440,15 @@ class LayerExporter(object):
         print(f"Source Config Dir: {unreal.Paths.source_config_dir()}")
         print(f"Project Config Dir: {unreal.Paths.project_config_dir()}")
         config = configparser.ConfigParser(strict=False)
-        with open(config_path, 'r', encoding='utf-16') as f:
-            config.read_file(f)
-        self.DefaultGameSettings["ProjectName"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectName', fallback='Not Found').__str__()
-        print(f"Project Name: {self.DefaultGameSettings['ProjectName']}")
-        self.DefaultGameSettings["ProjectVersion"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectVersion', fallback='Not Found').__str__()
-        print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
+        try:
+            with open(config_path, 'r', encoding="utf-16") as f:
+                config.read_file(f)
+            self.DefaultGameSettings["ProjectName"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectName', fallback='Not Found').__str__()
+            print(f"Project Name: {self.DefaultGameSettings['ProjectName']}")
+            self.DefaultGameSettings["ProjectVersion"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectVersion', fallback='Not Found').__str__()
+            print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
+        except:
+            print("Unable to get Default Game Settings")
 
     def ExportToJSON(self):        
         contentDir = unreal.Paths.engine_content_dir()
