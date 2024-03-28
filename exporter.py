@@ -4,6 +4,8 @@
 
 LAYER_PREFIX_FILTER = [] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 
+MINIFY_OUTPUT = True # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
+
 ##########################
 ## END OF CONFIGURATION ##
 ##########################
@@ -31,6 +33,7 @@ class LayerExporter(object):
     AllVehicles = {}
     LevelAssets = {}
     FactionSetupAssets = {}
+    Factions = {}
     Roles = {}
     MeleeWeapons = []
     
@@ -102,28 +105,70 @@ class LayerExporter(object):
             self.LayersData[layer_name]["layerVersion"] = layerVersion.group()
         
         self.LayersData[layer_name]["factions"] = []
+        self.LayersData[layer_name]["teamConfigs"] = {}
+        self.LayersData[layer_name]["objectives"] = {}
+        
+        objectives = Layer.get_editor_property("ObjectiveLocations")
+        mainCount = 0
+        for objective in objectives:
+            name = objective.name_id.__str__()
+            isMain = False
+            
+            if name == "Main":
+                mainCount+=1
+                isMain = True
+            
+            order = int(objective.order)
+            if isMain and mainCount == 2:
+                order*=100
+                
+            objId = f"{order}"
+            if int(order) < 10:
+                objId = f"0{objId}"
+                
+            
+            if isMain:
+                objectName = f"{objId}-Team{mainCount}{name}"
+            else:
+                objectName = f"{objId}-{name}"
+            
+            objectName = objectName.replace(" ", "")
+            self.LayersData[layer_name]["objectives"][objectName] = {}
+            self.LayersData[layer_name]["objectives"][objectName]["pointPosition"] = order
+            self.LayersData[layer_name]["objectives"][objectName]["name"] = name
+            self.LayersData[layer_name]["objectives"][objectName]["objectName"] = objectName
+            self.LayersData[layer_name]["objectives"][objectName]["location_x"] = objective.location.x
+            self.LayersData[layer_name]["objectives"][objectName]["location_y"] = objective.location.y
+            self.LayersData[layer_name]["objectives"][objectName]["location_z"] = objective.location.z
+            
         
         TeamConfigs = Layer.get_editor_property("TeamConfigs")
 
         for teamConfig in TeamConfigs:
             team_index = int(teamConfig.get_editor_property("Index").value)
-            self.LayersData[layer_name][f"team{team_index}"] = {}
-            self.LayersData[layer_name][f"team{team_index}"]["playerPercentage"] = teamConfig.get_editor_property("PlayerPercentage")
-            self.LayersData[layer_name][f"team{team_index}"]["tickets"] = teamConfig.get_editor_property("tickets")
-            self.LayersData[layer_name][f"team{team_index}"]["disableVehicleDuringStaggingPhase"] = teamConfig.get_editor_property("DisableVehicleDuringStaggingPhase")
-            # self.LayersData[layer_name][f"team{team_index}"]["defaultFaction"] = teamConfig.get_editor_property("DefaultFactionSetup").get_editor_property("Data").get_editor_property("RowName")
-            self.LayersData[layer_name][f"team{team_index}"]["allowedAlliances"] = []
-            self.LayersData[layer_name][f"team{team_index}"]["allowedFactionSetupTypes"] = []
+            
+            defaultFaction = teamConfig.get_editor_property("SpecificFactionSetup")
+            self.RequiredOutputFactions.append(defaultFaction.get_editor_property("FactionId").__str__())
+            
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"] = {}
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["index"] = team_index
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["defaultFaction"] = defaultFaction.get_editor_property("Data").get_editor_property("RowName").__str__()
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["playerPercentage"] = teamConfig.get_editor_property("PlayerPercentage")
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["tickets"] = teamConfig.get_editor_property("tickets")
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["disabledVeh"] = teamConfig.get_editor_property("DisableVehicleDuringStaggingPhase")
+
+            isAttackingTeam = teamConfig.call_method("IsAttackingTeam")
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["isAttackingTeam"] = isAttackingTeam
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["isDefendingTeam"] = not isAttackingTeam
+            
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["allowedAlliances"] = []
+            for allowedAlliance in teamConfig.get_editor_property("Allowed Alliances"):
+                self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["allowedAlliances"].append(self.enumToValue(allowedAlliance))
+                                    
+            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["allowedFactionSetupTypes"] = []
 
             for allowedFactionSetup in teamConfig.get_editor_property("AllowedFactionSetupTypes"):
-                self.LayersData[layer_name][f"team{team_index}"]["allowedFactionSetupTypes"].append(self.enumToValue(allowedFactionSetup))
-            
-            # try:
-            #     print(teamConfig.__dir__())
-            #     # for allowedAlliance in :
-            # except:
-            #     pass
-            #     # self.LayersData[layer_name][f"team{team_index}"]["allowedAlliances"].append(self.enumToValue(allowedAlliance))
+                self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["allowedFactionSetupTypes"].append(self.enumToValue(allowedFactionSetup))
         
         factionsList = Layer.get_editor_property("FactionsList")
         for factionId in factionsList:
@@ -139,7 +184,7 @@ class LayerExporter(object):
             if factionStruct.faction:
                 faction["defaultUnit"] = factionStruct.faction.get_editor_property("Data").get_editor_property("RowName").__str__()
 
-            self.RequiredOutputFactions.append(faction["factionId"])
+            self.RequiredOutputFactions.append(factionId.__str__())
             
             self.LayersData[layer_name]["factions"].append(faction)
     
@@ -254,6 +299,18 @@ class LayerExporter(object):
             self.FactionSetupAssets[assetName] = asset
         return self.FactionSetupAssets
     
+    def LoadFactions(self):
+        asset_filter = unreal.ARFilter(class_names=["BP_SQFaction_C"])
+        rawAssets = self.asset_registry.get_assets(asset_filter)
+        for rawAsset in rawAssets:
+            asset = rawAsset.get_asset()
+            assetName = asset.get_editor_property("Data").get_editor_property("RowName").__str__()
+            # if factionId not in self.RequiredOutputFactions:
+            #     continue
+            if assetName in self.RequiredOutputFactions:
+                self.Factions[assetName] = asset
+        return self.Factions
+    
     def LoadLayerList(self):
         asset_filter = unreal.ARFilter(class_names=["BP_SQLayer_C"])
         Layerslist = []
@@ -282,17 +339,20 @@ class LayerExporter(object):
                 factionType = self.enumToValue(FactionSetup.get_editor_property("Type"))        
             except:
                 pass
-                
+            
+            factionId = FactionSetup.get_editor_property("FactionId").__str__()
+            
             self.FactionSetupData[factionName] = {}
-            self.FactionSetupData[factionName]["unitName"] = factionName
-            self.FactionSetupData[factionName]["factionId"] = FactionSetup.get_editor_property("FactionId").__str__()
+            self.FactionSetupData[factionName]["unitObjectName"] = factionName
+            self.FactionSetupData[factionName]["factionId"] = factionId
             self.FactionSetupData[factionName]["factionShortName"] = FactionSetup.get_editor_property("FactionId").__str__()
-            self.FactionSetupData[factionName]["buddyRally"] = FactionSetup.get_editor_property("HasBuddyRally")
             self.FactionSetupData[factionName]["type"] = factionType
-            self.FactionSetupData[factionName]["teamSetupName"] =  FactionSetup.get_display_name().__str__()
+            self.FactionSetupData[factionName]["displayName"] =  FactionSetup.get_display_name().__str__()
+            self.FactionSetupData[factionName]["alliance"] =  self.enumToValue(self.Factions[factionId].get_editor_property("Alliance"))
             self.FactionSetupData[factionName]["actions"] = FactionSetup.actions.__len__()
             self.FactionSetupData[factionName]["intelOnEnemy"] = FactionSetup.get_editor_property("Intelligence On Enemy")
-            self.FactionSetupData[factionName]["commanderActionNearVehicle"] = FactionSetup.get_editor_property("CanUseCommanderActionNearVehicle")
+            self.FactionSetupData[factionName]["useCommanderActionNearVehicle"] = FactionSetup.get_editor_property("CanUseCommanderActionNearVehicle")
+            self.FactionSetupData[factionName]["hasBuddyRally"] = FactionSetup.get_editor_property("HasBuddyRally")
             
             self.FactionSetupData[factionName]["roles"] = []
             self.FactionSetupData[factionName]["vehicles"] = []
@@ -350,7 +410,18 @@ class LayerExporter(object):
                 vehName = VehicleName.__str__().strip()
                 vehType = self.enumToValue(VehicleType) #.__str__().split('.')[1].split(':')[0]
             
-                self.FactionSetupData[factionName]["vehicles"].append({"name": vehName, "rowName": VehicleRowName, "type": vehName, "vehicleType": vehType, "count": VehicleCount, "initialDelay": InitialDelay, "respawnTime": RespawnTime, "spawnerSize": SpawnerSize, "icon": VehicleIcon, "classNames": vehicleBlueprints})
+                self.FactionSetupData[factionName]["vehicles"].append({
+                    "name": vehName,
+                    "rowName": VehicleRowName,
+                    "type": vehName,
+                    "count": VehicleCount,
+                    "delay": InitialDelay,
+                    "respawnTime": RespawnTime,
+                    "vehType": vehType,
+                    "spawnerSize": SpawnerSize,
+                    "icon": VehicleIcon,
+                    "classNames": vehicleBlueprints
+                })
 
             Roles = FactionSetup.get_editor_property("Roles")
             
@@ -363,6 +434,7 @@ class LayerExporter(object):
                     DataTable = RoleSettings.get_editor_property("Data").get_editor_property("DataTable")
                     RowName = str(RoleSettings.get_editor_property("Data").get_editor_property("RowName"))
                     RoleObj["rowName"] = RowName
+                    RoleObj["displayName"] = RoleSettings.get_display_name().__str__()
                     
                     self.FactionSetupData[factionName]["roles"].append(RowName)
                     
@@ -440,15 +512,25 @@ class LayerExporter(object):
         print(f"Source Config Dir: {unreal.Paths.source_config_dir()}")
         print(f"Project Config Dir: {unreal.Paths.project_config_dir()}")
         config = configparser.ConfigParser(strict=False)
-        try:
-            with open(config_path, 'r', encoding="utf-16") as f:
-                config.read_file(f)
-            self.DefaultGameSettings["ProjectName"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectName', fallback='Not Found').__str__()
-            print(f"Project Name: {self.DefaultGameSettings['ProjectName']}")
-            self.DefaultGameSettings["ProjectVersion"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectVersion', fallback='Not Found').__str__()
-            print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
-        except:
+        error = False
+        encodings = [ "utf-16", "utf-16-be", "utf-16-le", "utf-8" ]
+        for encoding in encodings:
+            try:
+                with open(config_path, 'r', encoding=encoding) as f:
+                    config.read_file(f)
+            except:
+                print(f"Failed to read the Default Game Settings file using encoding {encoding}")
+                continue
+            break
+        
+        if error:
             print("Unable to get Default Game Settings")
+            return
+        
+        self.DefaultGameSettings["ProjectName"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectName', fallback='Not Found').__str__()
+        print(f"Project Name: {self.DefaultGameSettings['ProjectName']}")
+        self.DefaultGameSettings["ProjectVersion"] = config.get('/Script/EngineSettings.GeneralProjectSettings', 'ProjectVersion', fallback='Not Found').__str__()
+        print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
 
     def ExportToJSON(self):        
         contentDir = unreal.Paths.engine_content_dir()
@@ -463,7 +545,7 @@ class LayerExporter(object):
         self.GetDefaultGameSettings()
         
         self.LoadLevelList()
-        print("Number of Levels: " + str(len(self.LevelAssets)))
+        print("Number of Levels (Vanilla + MOD): " + str(len(self.LevelAssets)))
         
         Layerslist = self.LoadLayerList()
         number_of_layers = len(Layerslist)
@@ -481,18 +563,25 @@ class LayerExporter(object):
                 asset_id += 1
                 slow_task.enter_progress_frame(1)
 
+            self.LoadFactions()
+            print("Number of Factions: " + str(len(self.Factions)))
+
             self.LoadFactionSetups()
             print("Number of FactionSetups: " + str(len(self.FactionSetupAssets)))
             self.GenerateFactionSetupList()
 
+            indentation = 2
+            if MINIFY_OUTPUT:
+                indentation = None
+                
             with open(save_path, 'w') as f:
                 json.dump({
                     "DefaultGameSettings": self.DefaultGameSettings,
                     "Maps": list(self.LayersData.values()),
-                    "Factions": list(self.FactionSetupData.values()),
+                    "Units": self.FactionSetupData,
                     "Roles": list(self.Roles.values()),
                     "MeleeWeapons": self.MeleeWeapons
-                }, f, indent=2)
+                }, f, indent=indentation)
 
         return self.export_path
 
