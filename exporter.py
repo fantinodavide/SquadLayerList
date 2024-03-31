@@ -2,7 +2,7 @@
 ##  CONFIGURATION HERE  ##
 ##########################
 
-LAYER_PREFIX_FILTER = [] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
+LAYER_PREFIX_FILTER = [ ] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 
 MINIFY_OUTPUT = True # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 
@@ -104,6 +104,7 @@ class LayerExporter(object):
         if layerVersion:
             self.LayersData[layer_name]["layerVersion"] = layerVersion.group()
         
+        self.LayersData[layer_name]["separatedFactionsList"] = False
         self.LayersData[layer_name]["factions"] = []
         self.LayersData[layer_name]["teamConfigs"] = {}
         self.LayersData[layer_name]["objectives"] = {}
@@ -147,12 +148,14 @@ class LayerExporter(object):
         for teamConfig in TeamConfigs:
             team_index = int(teamConfig.get_editor_property("Index").value)
             
-            defaultFaction = teamConfig.get_editor_property("SpecificFactionSetup")
-            self.RequiredOutputFactions.append(defaultFaction.get_editor_property("FactionId").__str__())
-            
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"] = {}
+            
+            defaultFaction = teamConfig.get_editor_property("SpecificFactionSetup")
+            if defaultFaction:
+                self.RequiredOutputFactions.append(defaultFaction.get_editor_property("FactionId").__str__())
+                self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["defaultFaction"] = defaultFaction.get_editor_property("FactionId").__str__()
+            
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["index"] = team_index
-            self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["defaultFaction"] = defaultFaction.get_editor_property("Data").get_editor_property("RowName").__str__()
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["playerPercentage"] = teamConfig.get_editor_property("PlayerPercentage")
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["tickets"] = teamConfig.get_editor_property("tickets")
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["disabledVeh"] = teamConfig.get_editor_property("DisableVehicleDuringStaggingPhase")
@@ -170,23 +173,39 @@ class LayerExporter(object):
             for allowedFactionSetup in teamConfig.get_editor_property("AllowedFactionSetupTypes"):
                 self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["allowedFactionSetupTypes"].append(self.enumToValue(allowedFactionSetup))
         
-        factionsList = Layer.get_editor_property("FactionsList")
-        for factionId in factionsList:
-            factionStruct = factionsList[factionId]
-            faction = {}
-            faction["factionId"] = factionId.__str__()
-            faction["defaultUnit"] = None
-            faction["types"] = []
-            
-            for factionType in factionStruct.types:
-                faction["types"].append(factionType.__str__())
-            
-            if factionStruct.faction:
-                faction["defaultUnit"] = factionStruct.faction.get_editor_property("Data").get_editor_property("RowName").__str__()
+        
+        factionsList = {}
+        
+        factionsList[1] = Layer.get_editor_property("FactionsList")
+        factionsList[2] = Layer.get_editor_property("FactionsListTeamTwo")
+        # separatedFactionsList = Layer.get_editor_property("Separated Factions List")
+        separatedFactionsList = factionsList[2] is not None and len(factionsList[2]) > 0
+        self.LayersData[layer_name]["separatedFactionsList"] = separatedFactionsList
+        for teamIndex in factionsList:
+            if factionsList[teamIndex] is None:
+                continue
+            for factionId in factionsList[teamIndex]:
+                factionStruct = factionsList[teamIndex][factionId]
+                faction = {}
+                faction["factionId"] = factionId.__str__()
+                faction["defaultUnit"] = None
+                
+                if separatedFactionsList:
+                    faction["availableOnTeams"] = [ teamIndex ]
+                else:
+                    faction["availableOnTeams"] = [ 1, 2 ]
+                
+                faction["types"] = []
+                
+                for factionType in factionStruct.types:
+                    faction["types"].append(factionType.__str__())
+                
+                if factionStruct.faction:
+                    faction["defaultUnit"] = factionStruct.faction.get_editor_property("Data").get_editor_property("RowName").__str__()
 
-            self.RequiredOutputFactions.append(factionId.__str__())
-            
-            self.LayersData[layer_name]["factions"].append(faction)
+                self.RequiredOutputFactions.append(factionId.__str__())
+                
+                self.LayersData[layer_name]["factions"].append(faction)
     
     def enumToValue(self, enum):
         # print(enum)
@@ -348,7 +367,12 @@ class LayerExporter(object):
             self.FactionSetupData[factionName]["factionShortName"] = FactionSetup.get_editor_property("FactionId").__str__()
             self.FactionSetupData[factionName]["type"] = factionType
             self.FactionSetupData[factionName]["displayName"] =  FactionSetup.get_display_name().__str__()
-            self.FactionSetupData[factionName]["alliance"] =  self.enumToValue(self.Factions[factionId].get_editor_property("Alliance"))
+            
+            if self.Factions[factionId]:
+                self.FactionSetupData[factionName]["alliance"] = self.enumToValue(self.Factions[factionId].get_editor_property("Alliance"))
+            else:
+                print(f"Unable to get faction {factionId}")
+                    
             self.FactionSetupData[factionName]["actions"] = FactionSetup.actions.__len__()
             self.FactionSetupData[factionName]["intelOnEnemy"] = FactionSetup.get_editor_property("Intelligence On Enemy")
             self.FactionSetupData[factionName]["useCommanderActionNearVehicle"] = FactionSetup.get_editor_property("CanUseCommanderActionNearVehicle")
