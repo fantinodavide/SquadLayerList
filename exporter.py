@@ -2,7 +2,7 @@
 ##  CONFIGURATION HERE  ##
 ##########################
 
-LAYER_PREFIX_FILTER = [ ] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
+LAYER_PREFIX_FILTER = [ "GC_" ] # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 
 MINIFY_OUTPUT = True # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 
@@ -153,7 +153,7 @@ class LayerExporter(object):
             defaultFaction = teamConfig.get_editor_property("SpecificFactionSetup")
             if defaultFaction:
                 self.RequiredOutputFactions.append(defaultFaction.get_editor_property("FactionId").__str__())
-                self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["defaultFaction"] = defaultFaction.get_editor_property("FactionId").__str__()
+                self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["defaultFaction"] = defaultFaction.get_editor_property("Data").get_editor_property("RowName")
             
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["index"] = team_index
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"]["playerPercentage"] = teamConfig.get_editor_property("PlayerPercentage")
