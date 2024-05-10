@@ -1,14 +1,18 @@
 const fs = require('node:fs');
 
-const parserRegex = /^(?<fullName>(?<mod>\w+)_(?<level>\w+)_(?<gamemode>\w+)_(?<version>V\d+)_(?<faction1>\w+)-(?<faction2>\w+)) \(.+\)/gi
+const parserRegex = /^\s*(?<fullName>(?<mod>[^\s_]+)_(?<level>[^\s_]+)_((?<gamemode>[^\s_]+)_)?((?<version>V\d+)_)?(?<faction1>\w+)(-|_)(?<faction2>\w+)) \(.+\)/gi
 
 const raw = fs.readFileSync('raw.txt').toString();
+
 const output = {
-    Maps: raw.split('\n')
+    Maps: raw.replace(/\r\n/g, '\n').split('\n')
         .map(l => {
-            l = l.trim();
-            const parsed = parserRegex.exec(l)?.groups;
-            if (!parsed) return;
+            const rawParsed = parserRegex.exec(l);
+            const parsed = rawParsed?.groups;
+            if (!parsed) {
+                console.log(`unable to parse "${l}"`)
+                return;
+            }
 
             const ret = {
                 Name: parsed.fullName,
