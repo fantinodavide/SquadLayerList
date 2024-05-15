@@ -6,7 +6,7 @@ LAYER_PREFIX_FILTER = (
     []
 )  # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 
-MINIFY_OUTPUT = False  # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
+MINIFY_OUTPUT = True  # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 
 ##########################
 ## END OF CONFIGURATION ##
