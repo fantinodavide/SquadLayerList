@@ -236,7 +236,7 @@ class LayerExporter(object):
                     defaultFaction.get_editor_property("FactionId").__str__()
                 )
                 self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
-                    "defaultFactionSetup"
+                    "defaultFactionUnit"
                 ] = (
                     defaultFaction.get_editor_property("Data")
                     .get_editor_property("RowName")
@@ -273,14 +273,14 @@ class LayerExporter(object):
                 ].append(self.enumToValue(allowedAlliance))
 
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
-                "allowedFactionSetupTypes"
+                "allowedFactionUnitTypes"
             ] = []
 
             for allowedFactionSetup in teamConfig.get_editor_property(
-                "AllowedFactionSetupTypes"
+                "allowedFactionSetupTypes"
             ):
                 self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
-                    "allowedFactionSetupTypes"
+                    "allowedFactionUnitTypes"
                 ].append(self.enumToValue(allowedFactionSetup))
 
         factionsList = {}
