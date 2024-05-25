@@ -9,14 +9,17 @@ async function main() {
         for (let t in l.teamConfigs) {
             const faction = { ...layers.Units[ l.teamConfigs[ t ].defaultFactionUnit ] };
             faction.faction = faction.displayName;
+            faction.unitObjectName = faction.unitObjectName;
 
             for (let vehicle of faction.vehicles)
                 try {
                     vehicle.rawType = vehicle.classNames[ 0 ];
                 } catch (e) { }
 
-            l.teamConfigs[ t ] = { ...l.teamConfigs[ t ], ...faction };
+
+            l[ t ] = { ...l.teamConfigs[ t ], ...faction };
         }
+        delete l.teamConfigs;
         return l;
     })
 
