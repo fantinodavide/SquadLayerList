@@ -409,8 +409,14 @@ class LayerExporter(object):
                     levelDataTable, "Map"
                 )
             )
-            row_index = row_names.index(levelRowName)
-            minimapPath = minimap_col[row_index]
+            try:
+                row_index = row_names.index(levelRowName)
+                minimapPath = minimap_col[row_index]
+            except:
+                print(
+                    f'[ERROR][GetMinimapTexture] Unable to find the minimapPath for "{levelRowName}" '
+                )
+                return ""
 
         minimapName = unreal.Paths.get_base_filename(minimapPath)
 
@@ -579,7 +585,14 @@ class LayerExporter(object):
                     dataTable, "UI_UnitBadge"
                 )
             )
-            row_index = row_names.index(rowName)
+
+            try:
+                row_index = row_names.index(rowName)
+            except:
+                print(
+                    f"[ERROR][GenerateFactionSetupList] Unable to find the row_index for {rowName} "
+                )
+                return None
 
             # print(.__dir__())
 
