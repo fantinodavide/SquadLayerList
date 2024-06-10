@@ -8,6 +8,12 @@ LAYER_PREFIX_FILTER = (
 
 MINIFY_OUTPUT = True  # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 
+EXPORT_VEHICLES = True
+EXPORT_ROLES = True
+EXPORT_INVENTORIES = True
+
+INVENTORY_COMPATIBILITY_MODE = False
+
 ##########################
 ## END OF CONFIGURATION ##
 ##########################
@@ -40,6 +46,7 @@ class LayerExporter(object):
     Roles = {}
     MeleeWeapons = []
     ExportedMinimapPaths = []
+    DestroyedVehiclesClasses = []
 
     LayersData = {}
     FactionSetupData = {}
@@ -99,14 +106,23 @@ class LayerExporter(object):
             "Gamemode"
         ).get_editor_property("RowName")
         self.LayersData[layer_name] = {}
-        self.LayersData[layer_name]["Name"] = Layer.get_display_name().__str__()
+
+        self.LayersData[layer_name]["Name"] = Layer.get_display_name()
+        if self.LayersData[layer_name]["Name"] is None:
+            self.LayersData[layer_name]["Name"] = re.sub(
+                r"[-_]", " ", Layer.get_id_as_string()
+            )
+        self.LayersData[layer_name]["Name"] = self.LayersData[layer_name][
+            "Name"
+        ].__str__()
+
         self.LayersData[layer_name]["rawName"] = LayerRowName.__str__()
         self.LayersData[layer_name]["levelName"] = LayerRowName.__str__()
         self.LayersData[layer_name]["fName"] = Layer.get_fname().__str__()
         # self.LayersData[layer_name]["modId"] = modId
         self.LayersData[layer_name]["gamemode"] = LayerGamemodeRowName.__str__()
 
-        print(Layer.get_mod_id())
+        # print(Layer.get_mod_id())
 
         self.LayersData[layer_name]["persistentLightingType"] = PersistentLightingType
         self.LayersData[layer_name]["lightingLevel"] = self.GetLightingLayerName(Layer)
@@ -150,9 +166,13 @@ class LayerExporter(object):
 
         self.LayersData[layer_name]["mapId"] = levelId
 
-        self.LayersData[layer_name]["biome"] = (
-            self.LevelAssets[levelId].get_editor_property("Biome").name.__str__()
-        )
+        try:
+            self.LayersData[layer_name]["biome"] = (
+                self.LevelAssets[levelId].get_editor_property("Biome").name.__str__()
+            )
+        except KeyError:
+            print(f'Unable to get the biome for layer "{layer_name}"')
+
         self.LayersData[layer_name]["mapName"] = (
             self.LevelAssets[levelId].get_display_name().__str__()
         )
@@ -211,7 +231,7 @@ class LayerExporter(object):
 
             if isMain and mainCount == 2:
                 team2main = pointData
-                print(team2main)
+                # print(team2main)
                 continue
 
             self.LayersData[layer_name]["objectives"][objectName] = pointData
@@ -221,7 +241,8 @@ class LayerExporter(object):
                 team2main["objectName"]
             ] = team2main
         else:
-            print(f"{layer_name} has no Main 2 Objective")
+            # print(f"{layer_name} has no Main 2 Objective")
+            None
 
         TeamConfigs = Layer.get_editor_property("TeamConfigs")
 
@@ -509,6 +530,7 @@ class LayerExporter(object):
     def LoadLayerList(self):
         asset_filter = unreal.ARFilter(class_names=["BP_SQLayer_C"])
         Layerslist = []
+        printCount = 0
         for rawAsset in self.asset_registry.get_assets(asset_filter):
             asset = rawAsset.get_asset()
             LayerRowName = (
@@ -525,6 +547,10 @@ class LayerExporter(object):
 
             if not keep:
                 continue
+
+            # if printCount < 2:
+            #     print(asset.get_editor_property("TeamConfigs")[0])
+            #     printCount += 1
 
             Layerslist.append(rawAsset)
         return Layerslist
@@ -566,6 +592,9 @@ class LayerExporter(object):
 
             factionId = FactionSetup.get_editor_property("FactionId").__str__()
 
+            if factionId not in self.RequiredOutputFactions:
+                continue
+
             self.FactionSetupData[factionName] = {}
             self.FactionSetupData[factionName]["unitObjectName"] = factionName
             self.FactionSetupData[factionName]["factionID"] = factionId
@@ -579,6 +608,7 @@ class LayerExporter(object):
             self.FactionSetupData[factionName][
                 "description"
             ] = ""  # descriptionCol[row_index].title().__str__()
+
             self.FactionSetupData[factionName]["unitBadge"] = (
                 unreal.Paths.get_base_filename(unitBadgeCol[row_index].__str__())
             )
@@ -606,175 +636,223 @@ class LayerExporter(object):
             self.FactionSetupData[factionName]["roles"] = []
             self.FactionSetupData[factionName]["vehicles"] = []
 
-            Vehicles = FactionSetup.get_editor_property("Vehicles")
-            for Vehicle in Vehicles:
-                VehicleBlueprint = ""
-                VehicleSettings = Vehicle.get_editor_property("Setting")
-                VehicleRespawnData = Vehicle.get_editor_property("Delay")
-                VehicleCountData = Vehicle.get_editor_property("LimitedCount")
+            if EXPORT_VEHICLES:
+                Vehicles = FactionSetup.get_editor_property("Vehicles")
+                for Vehicle in Vehicles:
+                    VehicleBlueprint = ""
+                    VehicleSettings = Vehicle.get_editor_property("Setting")
+                    VehicleRespawnData = Vehicle.get_editor_property("Delay")
+                    VehicleCountData = Vehicle.get_editor_property("LimitedCount")
+                    # DestroyedVehicleConfig = VehicleSettings.get_editor_property("Claimable")
 
-                VehicleName = ""
-                VehicleCount = 0
-                InitialDelay = 0
-                RespawnTime = 0
-                VehicleIcon = ""
-                VehicleType = ""
-                SpawnerSize = ""
-                VehicleVersions = ""
-                rowName = ""
+                    VehicleName = ""
+                    VehicleCount = 0
+                    InitialDelay = 0
+                    RespawnTime = 0
+                    VehicleIcon = ""
+                    VehicleType = ""
+                    SpawnerSize = ""
+                    VehicleVersions = []
+                    VehicleTags = []
+                    rowName = ""
+                    VehicleWrecks = {}
 
-                if VehicleSettings != None:
-                    VehicleDataTable = VehicleSettings.get_editor_property(
-                        "Data"
-                    ).get_editor_property("DataTable")
-                    VehicleRowName = str(
-                        VehicleSettings.get_editor_property("Data").get_editor_property(
-                            "RowName"
+                    if VehicleSettings != None:
+                        for vehTag in VehicleSettings.get_editor_property(
+                            "VehicleTags"
+                        ):
+                            VehicleTags.append(self.enumToValue(vehTag))
+
+                        VehicleDataTable = VehicleSettings.get_editor_property(
+                            "Data"
+                        ).get_editor_property("DataTable")
+                        VehicleRowName = str(
+                            VehicleSettings.get_editor_property(
+                                "Data"
+                            ).get_editor_property("RowName")
                         )
-                    )
-                    VehicleType = VehicleSettings.get_editor_property("VehicleType")
-                    SpawnerSize = (
-                        VehicleSettings.get_editor_property("SpawnerSize")
-                        .__str__()
-                        .split(".")[1]
-                        .split(":")[0]
-                    )
-                    VehicleVersions = VehicleSettings.get_editor_property(
-                        "VehicleVersions"
-                    )
-
-                    vehicleDependencyOptions = unreal.AssetRegistryDependencyOptions(
-                        True, False, False, False, False
-                    )
-                    vehicleDependencies = self.asset_registry.get_dependencies(
-                        VehicleSettings.get_path_name().split(".")[0],
-                        vehicleDependencyOptions,
-                    )
-                    vehicleBlueprints = []
-                    for vD in vehicleDependencies:
-                        vehicleBlueprints.append(os.path.basename(vD.__str__()) + "_C")
-
-                    row_names = (
-                        unreal.DataTableFunctionLibrary.get_data_table_row_names(
-                            VehicleDataTable
+                        VehicleType = VehicleSettings.get_editor_property("VehicleType")
+                        SpawnerSize = (
+                            VehicleSettings.get_editor_property("SpawnerSize")
+                            .__str__()
+                            .split(".")[1]
+                            .split(":")[0]
                         )
-                    )
-                    icon_col_name = (
-                        unreal.DataTableFunctionLibrary.get_data_table_column_as_string(
+
+                        vehicleDependencyOptions = (
+                            unreal.AssetRegistryDependencyOptions(
+                                True, False, False, False, False
+                            )
+                        )
+                        vehicleDependencies = self.asset_registry.get_dependencies(
+                            VehicleSettings.get_path_name().split(".")[0],
+                            vehicleDependencyOptions,
+                        )
+                        vehicleBlueprints = []
+                        if vehicleDependencies:
+                            for vD in vehicleDependencies:
+                                vehicleBlueprints.append(
+                                    os.path.basename(vD.__str__()) + "_C"
+                                )
+                                vehicleBPDependencyOptions = (
+                                    unreal.AssetRegistryDependencyOptions(
+                                        False, True, False, False, False
+                                    )
+                                )
+                                vehicleBPDependencies = (
+                                    self.asset_registry.get_dependencies(
+                                        vD.__str__().split(".")[0],
+                                        vehicleBPDependencyOptions,
+                                    )
+                                )
+                                # print(self.asset_registry.get_asset_by_object_path(f"{vD}.{unreal.Paths.get_base_filename(vD)}").get_asset())
+
+                        row_names = (
+                            unreal.DataTableFunctionLibrary.get_data_table_row_names(
+                                VehicleDataTable
+                            )
+                        )
+                        icon_col_name = unreal.DataTableFunctionLibrary.get_data_table_column_as_string(
                             VehicleDataTable, "Icon"
                         )
-                    )
-                    columns_name = (
-                        unreal.DataTableFunctionLibrary.get_data_table_column_as_string(
+                        columns_name = unreal.DataTableFunctionLibrary.get_data_table_column_as_string(
                             VehicleDataTable, "DisplayName"
                         )
-                    )
-                    VehicleName = ""
-                    VehicleIcon = ""
-                    try:
-                        row_index = row_names.index(VehicleRowName)
-                        ColumnValues = columns_name[row_index].split(",")
-                        VehicleName = ColumnValues[len(ColumnValues) - 1].replace(
-                            '"', ""
-                        )[:-1]
-                        VehicleIcon = (
-                            icon_col_name[row_index].split(",")[0].split(".")[1]
+                        VehicleName = ""
+                        VehicleIcon = ""
+                        try:
+                            row_index = row_names.index(VehicleRowName)
+                            ColumnValues = columns_name[row_index].split(",")
+                            VehicleName = ColumnValues[len(ColumnValues) - 1].replace(
+                                '"', ""
+                            )[:-1]
+                            VehicleIcon = (
+                                icon_col_name[row_index].split(",")[0].split(".")[1]
+                            )
+                        except:
+                            pass
+
+                    if VehicleRespawnData != None:
+                        InitialDelay = unreal.MathLibrary.get_total_minutes(
+                            VehicleRespawnData.get_editor_property("InitialDelay")
                         )
-                    except:
-                        pass
+                        RespawnTime = unreal.MathLibrary.get_total_minutes(
+                            VehicleRespawnData.get_editor_property("Delay")
+                        )
 
-                if VehicleRespawnData != None:
-                    InitialDelay = unreal.MathLibrary.get_total_minutes(
-                        VehicleRespawnData.get_editor_property("InitialDelay")
+                    if VehicleCountData != None:
+                        VehicleCount = VehicleCountData.get_editor_property(
+                            "BaseAvailability"
+                        )
+
+                    vehName = VehicleName.__str__().strip()
+                    vehType = self.enumToValue(
+                        VehicleType
+                    )  # .__str__().split('.')[1].split(':')[0]
+
+                    self.FactionSetupData[factionName]["vehicles"].append(
+                        {
+                            "name": vehName,
+                            "rowName": VehicleRowName,
+                            "type": vehName,
+                            "count": VehicleCount,
+                            "delay": InitialDelay,
+                            "respawnTime": RespawnTime,
+                            "vehType": vehType,
+                            "spawnerSize": SpawnerSize,
+                            "icon": VehicleIcon,
+                            "classNames": vehicleBlueprints,
+                            "tags": VehicleTags,
+                        }
                     )
-                    RespawnTime = unreal.MathLibrary.get_total_minutes(
-                        VehicleRespawnData.get_editor_property("Delay")
-                    )
-
-                if VehicleCountData != None:
-                    VehicleCount = VehicleCountData.get_editor_property(
-                        "BaseAvailability"
-                    )
-
-                vehName = VehicleName.__str__().strip()
-                vehType = self.enumToValue(
-                    VehicleType
-                )  # .__str__().split('.')[1].split(':')[0]
-
-                self.FactionSetupData[factionName]["vehicles"].append(
-                    {
-                        "name": vehName,
-                        "rowName": VehicleRowName,
-                        "type": vehName,
-                        "count": VehicleCount,
-                        "delay": InitialDelay,
-                        "respawnTime": RespawnTime,
-                        "vehType": vehType,
-                        "spawnerSize": SpawnerSize,
-                        "icon": VehicleIcon,
-                        "classNames": vehicleBlueprints,
-                    }
-                )
 
             Roles = FactionSetup.get_editor_property("Roles")
+            if EXPORT_ROLES and Roles is not None and len(Roles) > 0:
+                count = 0
+                for Role in Roles:
+                    RoleSettings = Role.get_editor_property("Setting")
+                    RoleObj = {}
 
-            count = 0
-            for Role in Roles:
-                RoleSettings = Role.get_editor_property("Setting")
-                RoleObj = {}
-
-                if RoleSettings != None:
-                    DataTable = RoleSettings.get_editor_property(
-                        "Data"
-                    ).get_editor_property("DataTable")
-                    RowName = str(
-                        RoleSettings.get_editor_property("Data").get_editor_property(
-                            "RowName"
+                    if RoleSettings != None:
+                        DataTable = RoleSettings.get_editor_property(
+                            "Data"
+                        ).get_editor_property("DataTable")
+                        RowName = str(
+                            RoleSettings.get_editor_property(
+                                "Data"
+                            ).get_editor_property("RowName")
                         )
-                    )
-                    RoleObj["rowName"] = RowName
-                    RoleObj["displayName"] = RoleSettings.get_display_name().__str__()
+                        RoleObj["rowName"] = RowName
+                        RoleObj["displayName"] = (
+                            RoleSettings.get_display_name().__str__()
+                        )
 
-                    self.FactionSetupData[factionName]["roles"].append(RowName)
+                        self.FactionSetupData[factionName]["roles"].append(RowName)
 
-                    if RowName in self.Roles:
-                        continue
+                        if RowName in self.Roles:
+                            continue
 
-                    RoleObj["inventory"] = []
-                    Inventory = RoleSettings.get_editor_property("Inventory")
-                    if Inventory is not None:
-                        slotIndex = -1
-                        for inventorySlot in Inventory:
-                            slotIndex += 1
-                            items = inventorySlot.weapon_items
-                            itemIndex = -1
-                            for item in items:
-                                itemIndex += 1
-                                ItemObj = {}
-                                # print(item.__dir__())
+                        RoleObj["inventory"] = []
 
-                                # if count == 0:
-                                #     print(item.equipable_item.__dir__())
+                        Inventory = RoleSettings.get_editor_property("Inventory")
+                        if EXPORT_INVENTORIES:
+                            if Inventory is not None and len(Inventory) > 0:
+                                slotIndex = -1
+                                for inventorySlot in Inventory:
+                                    slotIndex += 1
 
-                                if item.equipable_item is not None:
-                                    ItemObj["className"] = unreal.Paths.get_extension(
-                                        item.equipable_item.get_path_name()
-                                    )
-                                    # ItemObj["parentClassName"] =  item.equipable_item.static_class().__str__()
-                                    ItemObj["isMelee"] = self.IsMeleeWeapon(
-                                        item.equipable_item
-                                    )
-                                ItemObj["slotIndex"] = slotIndex
-                                ItemObj["itemIndex"] = itemIndex
-                                ItemObj["minimum_count_on_spawn"] = (
-                                    item.minimum_count_on_spawn
-                                )
-                                ItemObj["max_allowed_in_inventory"] = (
-                                    item.max_allowed_in_inventory
-                                )
-                                ItemObj["cannot_rearm"] = item.cannot_rearm
-                                RoleObj["inventory"].append(ItemObj)
-                    self.Roles[RowName] = RoleObj
+                                    items = inventorySlot.weapon_items
+                                    itemIndex = -1
+                                    if items is not None and len(items) > 0:
+                                        for item in items:
+
+                                            itemIndex += 1
+                                            ItemObj = {}
+
+                                            ItemObj["className"] = None
+                                            ItemObj["parentClassName"] = None
+                                            ItemObj["isMelee"] = False
+
+                                            if INVENTORY_COMPATIBILITY_MODE:
+                                                itemStr = item.__str__()
+                                                itemClassnameMatch = re.search(
+                                                    r"equipable_item: [^.]+\.([^, ]+)",
+                                                    itemStr,
+                                                )
+                                                if itemClassnameMatch:
+                                                    ItemObj["className"] = (
+                                                        itemClassnameMatch.group(1)
+                                                    )
+                                                ItemObj["isMelee"] = self.IsMeleeWeapon(
+                                                    itemStr
+                                                )
+                                            else:
+                                                if item.equipable_item is not None:
+                                                    ItemObj["className"] = (
+                                                        unreal.Paths.get_extension(
+                                                            item.equipable_item.get_path_name()
+                                                        )
+                                                    )
+                                                    ItemObj["parentClassName"] = (
+                                                        item.equipable_item.static_class().__str__()
+                                                    )
+                                                    ItemObj["isMelee"] = (
+                                                        self.IsMeleeWeapon(
+                                                            item.equipable_item
+                                                        )
+                                                    )
+
+                                            ItemObj["slotIndex"] = slotIndex
+                                            ItemObj["itemIndex"] = itemIndex
+                                            ItemObj["minimum_count_on_spawn"] = (
+                                                item.minimum_count_on_spawn
+                                            )
+                                            ItemObj["max_allowed_in_inventory"] = (
+                                                item.max_allowed_in_inventory
+                                            )
+                                            ItemObj["cannot_rearm"] = item.cannot_rearm
+                                            RoleObj["inventory"].append(ItemObj)
+                        self.Roles[RowName] = RoleObj
 
     def GetHardDependencies(self, item):
         package_name = unreal.Paths.set_extension(item.get_path_name(), "")
@@ -808,15 +886,45 @@ class LayerExporter(object):
         return self.LayersSoftDependencies
 
     def IsMeleeWeapon(self, inventoryItem):
-        deps = self.GetHardDependencies(inventoryItem)
+        ret = False
+        wpName = ""
 
-        for dep in deps:
-            if "BP_GenericMelee" in dep:
-                wpName = unreal.Paths.get_extension(inventoryItem.get_path_name())
-                if wpName not in self.MeleeWeapons:
-                    self.MeleeWeapons.append(wpName)
-                return True
-        return False
+        if INVENTORY_COMPATIBILITY_MODE:
+            itemClassnameMatch = re.search(
+                r"equipable_item: [^.]+\.([^, ]+)", inventoryItem
+            )
+            if itemClassnameMatch:
+                wpName = itemClassnameMatch.group(1)
+            itemIsMeleeMatch = re.search(r"melee", inventoryItem, flags=re.IGNORECASE)
+            if itemIsMeleeMatch:
+                ret = True
+        else:
+            deps = self.GetHardDependencies(inventoryItem)
+
+            for dep in deps:
+                if "BP_GenericMelee" in dep:
+                    wpName = unreal.Paths.get_extension(inventoryItem.get_path_name())
+                    ret = True
+
+        if wpName not in self.MeleeWeapons and ret:
+            self.MeleeWeapons.append(wpName)
+        return ret
+
+    def GetDestroyedVehiclesClasses(self):
+        print("trying to get destroyed vehicles")
+        asset_filter = unreal.ARFilter(class_names=["BP_SQDestroyedVehicle_C"])
+        rawAssets = self.asset_registry.get_assets(asset_filter)
+        print(rawAssets)
+        for rawAsset in rawAssets:
+            asset = rawAsset.get_asset()
+            # assetName = (
+            #     asset.get_editor_property("Data")
+            #     .get_editor_property("RowName")
+            #     .__str__()
+            # )
+        #     if assetName in self.RequiredOutputFactions:
+        #         self.Factions[assetName] = asset
+        # return self.Factions
 
     def GetDefaultGameSettings(self):
         config_path = unreal.Paths.convert_relative_path_to_full(
@@ -869,6 +977,8 @@ class LayerExporter(object):
         print("Layer JSON Output Path: " + save_path)
         self.GetDefaultGameSettings()
 
+        self.GetDestroyedVehiclesClasses()
+
         self.LoadLevelList()
         print("Number of Levels (Vanilla + MOD): " + str(len(self.LevelAssets)))
 
@@ -889,6 +999,8 @@ class LayerExporter(object):
                 self.ExportLayerData(asset)
                 asset_id += 1
                 slow_task.enter_progress_frame(1)
+
+            # print("RequiredOutputFactions", self.RequiredOutputFactions)
 
             self.LoadFactions()
             print("Number of Factions: " + str(len(self.Factions)))
