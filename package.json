@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "husky": "^9.0.11"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "generate-old-layer-lists": "cd scripts && node convert_to_old_format.js"
   }
 }
