@@ -2,11 +2,15 @@
 ##  CONFIGURATION HERE  ##
 ##########################
 
+VANILLA_EXPORT = True
+
+# If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 LAYER_PREFIX_FILTER = (
     []
-)  # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
+) 
 
-MINIFY_OUTPUT = True  # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
+# If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
+MINIFY_OUTPUT = True
 
 EXPORT_VEHICLES = True
 EXPORT_ROLES = True
@@ -75,8 +79,10 @@ class LayerExporter(object):
         self.LegendTracker.clear()
         self.ChangesTracker.clear()
 
-    def ExportLayerData(self, _Layer):
-        Layer = _Layer.get_asset()
+    def ExportLayerData(self, Layer):
+        if not Layer:
+            return
+
         levelId = Layer.get_editor_property("LevelId").__str__()
 
         if levelId not in self.LevelAssets:
@@ -537,28 +543,33 @@ class LayerExporter(object):
         asset_filter = unreal.ARFilter(class_names=["BP_SQLayer_C"])
         Layerslist = []
         printCount = 0
-        for rawAsset in self.asset_registry.get_assets(asset_filter):
-            asset = rawAsset.get_asset()
-            LayerRowName = (
-                asset.get_editor_property("Data")
-                .get_editor_property("RowName")
-                .__str__()
-            )
 
-            keep = len(LAYER_PREFIX_FILTER) == 0
+        if VANILLA_EXPORT:
+            Layerslist = unreal.SQChunkSettings.get_default_object().get_editor_property("LayersToCook")
+        else:
+            for rawAsset in self.asset_registry.get_assets(asset_filter):
+                asset = rawAsset.get_asset()
+                LayerRowName = (
+                    asset.get_editor_property("Data")
+                    .get_editor_property("RowName")
+                    .__str__()
+                )
 
-            for prefix in LAYER_PREFIX_FILTER:
-                if LayerRowName.startswith(prefix):
-                    keep = True
+                keep = len(LAYER_PREFIX_FILTER) == 0
 
-            if not keep:
-                continue
+                for prefix in LAYER_PREFIX_FILTER:
+                    if LayerRowName.startswith(prefix):
+                        keep = True
 
-            # if printCount < 2:
-            #     print(asset.get_editor_property("TeamConfigs")[0])
-            #     printCount += 1
+                if not keep:
+                    continue
 
-            Layerslist.append(rawAsset)
+                # if printCount < 2:
+                #     print(asset.get_editor_property("TeamConfigs")[0])
+                #     printCount += 1
+
+                Layerslist.append(asset)
+                
         return Layerslist
 
     def GenerateFactionSetupList(self):
@@ -823,7 +834,7 @@ class LayerExporter(object):
                                             ItemObj = {}
 
                                             ItemObj["className"] = None
-                                            ItemObj["parentClassName"] = None
+                                            # ItemObj["parentClassName"] = None
                                             ItemObj["isMelee"] = False
 
                                             if INVENTORY_COMPATIBILITY_MODE:
@@ -846,9 +857,10 @@ class LayerExporter(object):
                                                             item.equipable_item.get_path_name()
                                                         )
                                                     )
-                                                    ItemObj["parentClassName"] = (
-                                                        item.equipable_item.static_class().__str__()
-                                                    )
+                                                    # print(item.equipable_item.get_default_object())
+                                                    # ItemObj["parentClassName"] = (
+                                                    #     item.equipable_item.static_class().__str__()
+                                                    # )
                                                     ItemObj["isMelee"] = (
                                                         self.IsMeleeWeapon(
                                                             item.equipable_item
