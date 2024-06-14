@@ -5,9 +5,7 @@
 VANILLA_EXPORT = True
 
 # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
-LAYER_PREFIX_FILTER = (
-    []
-) 
+LAYER_PREFIX_FILTER = []
 
 # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 MINIFY_OUTPUT = True
@@ -15,6 +13,7 @@ MINIFY_OUTPUT = True
 EXPORT_VEHICLES = True
 EXPORT_ROLES = True
 EXPORT_INVENTORIES = True
+EXPORT_OBJECTIVES = True
 
 INVENTORY_COMPATIBILITY_MODE = False
 
@@ -199,56 +198,57 @@ class LayerExporter(object):
         self.LayersData[layer_name]["teamConfigs"] = {}
         self.LayersData[layer_name]["objectives"] = {}
 
-        objectives = Layer.get_editor_property("ObjectiveLocations")
-        mainCount = 0
-        team2main = None
-        for objective in objectives:
-            name = objective.name_id.__str__()
-            isMain = False
+        if EXPORT_OBJECTIVES:
+            objectives = Layer.get_editor_property("ObjectiveLocations")
+            mainCount = 0
+            team2main = None
+            for objective in objectives:
+                name = objective.name_id.__str__()
+                isMain = False
 
-            pointData = {}
-            # print(objective.get_editor_property("Lanes"))
+                pointData = {}
+                # print(objective.get_editor_property("Lanes"))
 
-            if name == "Main":
-                mainCount += 1
-                isMain = True
+                if name == "Main":
+                    mainCount += 1
+                    isMain = True
 
-            order = int(objective.order)
-            if isMain and mainCount == 2:
-                order *= 100
+                order = int(objective.order)
+                if isMain and mainCount == 2:
+                    order *= 100
 
-            objId = f"{order}"
-            if int(order) < 10:
-                objId = f"0{objId}"
+                objId = f"{order}"
+                if int(order) < 10:
+                    objId = f"0{objId}"
 
-            if isMain:
-                objectName = f"{objId}-Team{mainCount}{name}"
+                if isMain:
+                    objectName = f"{objId}-Team{mainCount}{name}"
+                else:
+                    objectName = f"{objId}-{name}"
+
+                objectName = objectName.replace(" ", "")
+
+                pointData["pointPosition"] = order
+                pointData["name"] = name
+                pointData["objectName"] = objectName
+                pointData["location_x"] = objective.location.x
+                pointData["location_y"] = objective.location.y
+                pointData["location_z"] = objective.location.z
+
+                if isMain and mainCount == 2:
+                    team2main = pointData
+                    # print(team2main)
+                    continue
+
+                self.LayersData[layer_name]["objectives"][objectName] = pointData
+
+            if team2main:
+                self.LayersData[layer_name]["objectives"][
+                    team2main["objectName"]
+                ] = team2main
             else:
-                objectName = f"{objId}-{name}"
-
-            objectName = objectName.replace(" ", "")
-
-            pointData["pointPosition"] = order
-            pointData["name"] = name
-            pointData["objectName"] = objectName
-            pointData["location_x"] = objective.location.x
-            pointData["location_y"] = objective.location.y
-            pointData["location_z"] = objective.location.z
-
-            if isMain and mainCount == 2:
-                team2main = pointData
-                # print(team2main)
-                continue
-
-            self.LayersData[layer_name]["objectives"][objectName] = pointData
-
-        if team2main:
-            self.LayersData[layer_name]["objectives"][
-                team2main["objectName"]
-            ] = team2main
-        else:
-            # print(f"{layer_name} has no Main 2 Objective")
-            None
+                # print(f"{layer_name} has no Main 2 Objective")
+                None
 
         TeamConfigs = Layer.get_editor_property("TeamConfigs")
 
@@ -545,7 +545,11 @@ class LayerExporter(object):
         printCount = 0
 
         if VANILLA_EXPORT:
-            Layerslist = unreal.SQChunkSettings.get_default_object().get_editor_property("LayersToCook")
+            Layerslist = (
+                unreal.SQChunkSettings.get_default_object().get_editor_property(
+                    "LayersToCook"
+                )
+            )
         else:
             for rawAsset in self.asset_registry.get_assets(asset_filter):
                 asset = rawAsset.get_asset()
@@ -569,7 +573,7 @@ class LayerExporter(object):
                 #     printCount += 1
 
                 Layerslist.append(asset)
-                
+
         return Layerslist
 
     def GenerateFactionSetupList(self):
