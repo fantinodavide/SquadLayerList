@@ -2,10 +2,11 @@
 ##  CONFIGURATION HERE  ##
 ##########################
 
-VANILLA_EXPORT = True
-
 # If the layer starts with one of the array elements, it will be included in the exported list, everything else will be removed.
 LAYER_PREFIX_FILTER = []
+
+# If the layer ends with one of the array elements, it will be included in the exported list, everything else will be removed.
+LAYER_SUFFIX_FILTER = []
 
 # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
 MINIFY_OUTPUT = True
@@ -15,7 +16,11 @@ EXPORT_ROLES = True
 EXPORT_INVENTORIES = True
 EXPORT_OBJECTIVES = True
 
+#------------------------#
+#        ADVANCED        #
+#------------------------#
 INVENTORY_COMPATIBILITY_MODE = False
+VANILLA_EXPORT = True
 
 ##########################
 ## END OF CONFIGURATION ##
@@ -559,11 +564,16 @@ class LayerExporter(object):
                     .__str__()
                 )
 
-                keep = len(LAYER_PREFIX_FILTER) == 0
+                keep = len(LAYER_PREFIX_FILTER) + len(LAYER_SUFFIX_FILTER) == 0
 
                 for prefix in LAYER_PREFIX_FILTER:
                     if LayerRowName.startswith(prefix):
                         keep = True
+
+                if not keep:
+                    for suffix in LAYER_SUFFIX_FILTER:
+                        if LayerRowName.endswith(suffix):
+                            keep = True
 
                 if not keep:
                     continue
@@ -995,6 +1005,11 @@ class LayerExporter(object):
         print(f"Project Version: {self.DefaultGameSettings['ProjectVersion']}")
 
     def ExportToJSON(self):
+
+        # if len(LAYER_PREFIX_FILTER) + len(LAYER_SUFFIX_FILTER) > 0:
+        #     INVENTORY_COMPATIBILITY_MODE = True
+        #     VANILLA_EXPORT = False
+
         contentDir = unreal.Paths.engine_content_dir()
 
         if self.export_path == "":
