@@ -20,11 +20,33 @@ async function main() {
         }
 
         const outputMaps = layers.Maps.map(l => {
-            for (let t in l.teamConfigs) {
-                try {
-                    const faction = { ...layers.Units[ l.teamConfigs[ t ].defaultFactionUnit || l.teamConfigs[ t ].defaultFaction ] };
+            try {
+                for (let t in l.teamConfigs) {
+                    let defaultUnitName = l.teamConfigs[ t ].defaultFactionUnit || l.teamConfigs[ t ].defaultFaction;
+                    if (!defaultUnitName) continue;
 
-                    faction.faction = faction.displayName;
+                    let defaultUnit = layers.Units[ defaultUnitName ];
+
+                    if (!defaultUnit) {
+                        console.log(`Unable to get the unit`, defaultUnitName, l.rawName)
+                        let foundFix = false;
+                        for (const avUnit of l.factions) {
+                            defaultUnitName = avUnit.defaultUnit;
+                            defaultUnit = layers.Units[ defaultUnitName ]
+                            if (defaultUnit) {
+                                foundFix = true;
+                                break;
+                            }
+                        }
+                        if (foundFix)
+                            console.log(`Found fix for ${defaultUnitName}`)
+                        else
+                            console.log(`No fix found for ${defaultUnitName}`)
+                    }
+
+                    const faction = { ...defaultUnit };
+
+                    faction.faction = faction.factionName || faction.displayName;
                     faction.unitObjectName = faction.unitObjectName;
 
                     for (let vehicle of faction.vehicles)
@@ -34,7 +56,7 @@ async function main() {
 
                     l[ t ] = { ...l.teamConfigs[ t ], ...faction };
                 } catch (error) {
-                    console.log(`Unable to update teamconfig ${t} for ${l.rawName} (${modDir})`, error.message)
+                    // console.log(`Unable to update teamconfig ${t} for ${l.rawName} (${modDir})`, error.message)
                 }
             }
             delete l.teamConfigs;
