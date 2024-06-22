@@ -20,8 +20,8 @@ async function main() {
         }
 
         const outputMaps = layers.Maps.map(l => {
-            try {
-                for (let t in l.teamConfigs) {
+            for (let t in l.teamConfigs) {
+                try {
                     let defaultUnitName = l.teamConfigs[ t ].defaultFactionUnit || l.teamConfigs[ t ].defaultFaction;
                     if (!defaultUnitName) continue;
 
