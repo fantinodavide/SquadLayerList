@@ -16,9 +16,9 @@ EXPORT_ROLES = True
 EXPORT_INVENTORIES = True
 EXPORT_OBJECTIVES = True
 
-#------------------------#
+# ------------------------#
 #        ADVANCED        #
-#------------------------#
+# ------------------------#
 INVENTORY_COMPATIBILITY_MODE = False
 VANILLA_EXPORT = True
 
@@ -274,6 +274,11 @@ class LayerExporter(object):
                     .get_editor_property("RowName")
                     .__str__()
                 )
+                self.FactionSetupAssets[
+                    self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
+                        "defaultFactionUnit"
+                    ]
+                ] = defaultFaction
 
             self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
                 "index"
@@ -347,6 +352,7 @@ class LayerExporter(object):
                         .get_editor_property("RowName")
                         .__str__()
                     )
+                    self.FactionSetupAssets[faction["defaultUnit"]] = factionStruct.faction
 
                 self.RequiredOutputFactions.append(factionId.__str__())
 
@@ -635,6 +641,9 @@ class LayerExporter(object):
 
             self.FactionSetupData[factionName] = {}
             self.FactionSetupData[factionName]["unitObjectName"] = factionName
+            self.FactionSetupData[factionName]["factionName"] = (
+                self.Factions[factionId].get_display_name().__str__()
+            )
             self.FactionSetupData[factionName]["factionID"] = factionId
             self.FactionSetupData[factionName]["shortName"] = (
                 FactionSetup.get_editor_property("FactionId").__str__()
