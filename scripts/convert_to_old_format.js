@@ -32,15 +32,15 @@ async function main() {
                             vehicle.rawType = vehicle.classNames[ 0 ];
                         } catch (e) { }
 
-
                     l[ t ] = { ...l.teamConfigs[ t ], ...faction };
                 } catch (error) {
                     console.log(`Unable to update teamconfig ${t} for ${l.rawName} (${modDir})`, error.message)
                 }
             }
             delete l.teamConfigs;
+            if (!l.team1 || !l.team2) return;
             return l;
-        })
+        }).filter(l => l != null)
 
         const output = layers;
         delete output.Maps;
