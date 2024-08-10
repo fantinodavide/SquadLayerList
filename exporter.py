@@ -19,8 +19,9 @@ EXPORT_OBJECTIVES = True
 # ------------------------#
 #        ADVANCED        #
 # ------------------------#
-INVENTORY_COMPATIBILITY_MODE = False
+INVENTORY_COMPATIBILITY_MODE = True
 VANILLA_EXPORT = True
+STRICT_UNIT_ID_FILTERING = False
 
 ##########################
 ## END OF CONFIGURATION ##
@@ -40,9 +41,15 @@ import sys
 
 
 class LayerExporter(object):
+    Config = {
+        "VANILLA_EXPORT": VANILLA_EXPORT,
+        "INVENTORY_COMPATIBILITY_MODE": INVENTORY_COMPATIBILITY_MODE,
+    }
+
     DefaultGameSettings = {}
 
     RequiredOutputFactions = []
+    RequiredOutputUnits = []
     LayersSoftDependencies = []
     FactionTracker = {}
     LegendTracker = {}
@@ -183,8 +190,8 @@ class LayerExporter(object):
         except KeyError:
             print(f'Unable to get the biome for layer "{layer_name}"')
 
-        self.LayersData[layer_name]["mapName"] = (
-            self.LevelAssets[levelId].get_display_name().__str__()
+        self.LayersData[layer_name]["mapName"] = self.ToString(
+            self.LevelAssets[levelId].get_display_name()
         )
 
         self.LayersData[layer_name][
@@ -274,6 +281,11 @@ class LayerExporter(object):
                     .get_editor_property("RowName")
                     .__str__()
                 )
+                self.RequiredOutputUnits.append(
+                    self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
+                        "defaultFactionUnit"
+                    ]
+                )
                 self.FactionSetupAssets[
                     self.LayersData[layer_name]["teamConfigs"][f"team{team_index}"][
                         "defaultFactionUnit"
@@ -352,7 +364,10 @@ class LayerExporter(object):
                         .get_editor_property("RowName")
                         .__str__()
                     )
-                    self.FactionSetupAssets[faction["defaultUnit"]] = factionStruct.faction
+                    self.FactionSetupAssets[faction["defaultUnit"]] = (
+                        factionStruct.faction
+                    )
+                    self.RequiredOutputUnits.append(faction["defaultUnit"])
 
                 self.RequiredOutputFactions.append(factionId.__str__())
 
@@ -391,6 +406,12 @@ class LayerExporter(object):
                     if "LL" in dep_name_str:
                         return os.path.basename(dep_name_str)
         return ""
+
+    def ToString(self, elm):
+        if not elm:
+            return
+        else:
+            return str(elm)
 
     def GetMinimapTexture(self, Layer):
         minimapPath = None
@@ -555,7 +576,7 @@ class LayerExporter(object):
         Layerslist = []
         printCount = 0
 
-        if VANILLA_EXPORT:
+        if self.Config["VANILLA_EXPORT"]:
             Layerslist = (
                 unreal.SQChunkSettings.get_default_object().get_editor_property(
                     "LayersToCook"
@@ -637,6 +658,9 @@ class LayerExporter(object):
             factionId = FactionSetup.get_editor_property("FactionId").__str__()
 
             if factionId not in self.RequiredOutputFactions:
+                continue
+            
+            if rowName not in self.RequiredOutputUnits and STRICT_UNIT_ID_FILTERING:
                 continue
 
             self.FactionSetupData[factionName] = {}
@@ -736,6 +760,7 @@ class LayerExporter(object):
                             vehicleDependencyOptions,
                         )
                         vehicleBlueprints = []
+                        vehicleSpawnCommands = []
                         if vehicleDependencies:
                             for vD in vehicleDependencies:
                                 vehicleBlueprints.append(
@@ -751,6 +776,10 @@ class LayerExporter(object):
                                         vD.__str__().split(".")[0],
                                         vehicleBPDependencyOptions,
                                     )
+                                )
+
+                                vehicleSpawnCommands.append(
+                                    f"AdminCreateVehicle {self.ToString(vD)}.{os.path.basename(vD.__str__())}_C"
                                 )
                                 # print(self.asset_registry.get_asset_by_object_path(f"{vD}.{unreal.Paths.get_base_filename(vD)}").get_asset())
 
@@ -810,6 +839,7 @@ class LayerExporter(object):
                             "icon": VehicleIcon,
                             "classNames": vehicleBlueprints,
                             "tags": VehicleTags,
+                            "spawnCommands": vehicleSpawnCommands,
                         }
                     )
 
@@ -860,7 +890,9 @@ class LayerExporter(object):
                                             # ItemObj["parentClassName"] = None
                                             ItemObj["isMelee"] = False
 
-                                            if INVENTORY_COMPATIBILITY_MODE:
+                                            if self.Config[
+                                                "INVENTORY_COMPATIBILITY_MODE"
+                                            ]:
                                                 itemStr = item.__str__()
                                                 itemClassnameMatch = re.search(
                                                     r"equipable_item: [^.]+\.([^, ]+)",
@@ -937,7 +969,7 @@ class LayerExporter(object):
         ret = False
         wpName = ""
 
-        if INVENTORY_COMPATIBILITY_MODE:
+        if self.Config["INVENTORY_COMPATIBILITY_MODE"]:
             itemClassnameMatch = re.search(
                 r"equipable_item: [^.]+\.([^, ]+)", inventoryItem
             )
@@ -1015,9 +1047,9 @@ class LayerExporter(object):
 
     def ExportToJSON(self):
 
-        # if len(LAYER_PREFIX_FILTER) + len(LAYER_SUFFIX_FILTER) > 0:
-        #     INVENTORY_COMPATIBILITY_MODE = True
-        #     VANILLA_EXPORT = False
+        if len(LAYER_PREFIX_FILTER) + len(LAYER_SUFFIX_FILTER) > 0:
+            # self.Config["INVENTORY_COMPATIBILITY_MODE"] = True
+            self.Config["VANILLA_EXPORT"] = False
 
         contentDir = unreal.Paths.engine_content_dir()
 
