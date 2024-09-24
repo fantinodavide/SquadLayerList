@@ -1055,7 +1055,7 @@ class LayerExporter(object):
 
         if self.export_path == "":
             self.export_path = unreal.Paths.project_saved_dir()
-        save_path = self.export_path + "layers.json"
+        save_path = unreal.Paths.convert_relative_path_to_full(self.export_path + "layers.json")
 
         print(f"Engine content dir: {contentDir}")
         print("Base Path: " + self.export_path)
