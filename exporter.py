@@ -19,7 +19,7 @@ EXPORT_OBJECTIVES = True
 # ------------------------#
 #        ADVANCED        #
 # ------------------------#
-INVENTORY_COMPATIBILITY_MODE = True
+INVENTORY_COMPATIBILITY_MODE = False
 VANILLA_EXPORT = True
 STRICT_UNIT_ID_FILTERING = False
 
