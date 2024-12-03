@@ -1,6 +1,9 @@
 name: Generate Old Layer Lists
 
-on: [ push ]
+on: 
+  push:
+    branches-ignore:
+      - 'main'
 
 jobs:
   generate-and-commit:
