@@ -1,10 +1,6 @@
 name: Generate Old Layer Lists
 
-on:
-  push:
-    branches: 
-      - main
-      - master
+on: [ push ]
 
 jobs:
   generate-and-commit:
@@ -47,5 +43,5 @@ jobs:
         git config user.name 'GitHub Actions Bot'
         git config user.email '<>'
         git add .
-        git commit -m "Update old layer lists [skip ci]"
+        git commit -m "chore: legacy layer lists generation"
         git push
