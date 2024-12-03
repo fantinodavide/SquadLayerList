@@ -22,7 +22,7 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: npm install
     
     - name: Generate Old Layer Lists
       run: npm run generate-old-layer-lists
