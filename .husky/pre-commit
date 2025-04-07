@@ -1,3 +1,0 @@
-if git diff --cached --name-only | grep -E '.json$'; then
-    npm run generate-old-layer-lists
-fi

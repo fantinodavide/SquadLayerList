@@ -1,0 +1,50 @@
+name: Generate Old Layer Lists
+
+on: 
+  push:
+    branches-ignore:
+      - 'main'
+
+jobs:
+  generate-and-commit:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Generate Old Layer Lists
+      run: npm run generate-old-layer-lists
+    
+    - name: Check for changes
+      id: check_changes
+      run: |
+        changes=$(git status --porcelain)
+        if [ -n "$changes" ]; then
+          echo "changes_exist=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes_exist=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.changes_exist == 'true'
+      run: |
+        git config user.name 'GitHub Actions Bot'
+        git config user.email '<>'
+        git add .
+        git commit -m "chore: legacy layer lists generation"
+        git push
