@@ -895,18 +895,20 @@ class LayerExporter(object):
                                             ]:
                                                 itemStr = item.__str__()
                                                 itemClassnameMatch = re.search(
-                                                    r"equipable_item: [^.]+\.([^, ]+)",
+                                                    r"equipable_item: ([^.]+\.([^, ]+))",
                                                     itemStr,
                                                 )
                                                 if itemClassnameMatch:
+                                                    ItemObj["objectPath"] = itemClassnameMatch.group(1)
                                                     ItemObj["className"] = (
-                                                        itemClassnameMatch.group(1)
+                                                        itemClassnameMatch.group(2)
                                                     )
                                                 ItemObj["isMelee"] = self.IsMeleeWeapon(
                                                     itemStr
                                                 )
                                             else:
                                                 if item.equipable_item is not None:
+                                                    ItemObj["objectPath"] = item.equipable_item.get_path_name()
                                                     ItemObj["className"] = (
                                                         unreal.Paths.get_extension(
                                                             item.equipable_item.get_path_name()
