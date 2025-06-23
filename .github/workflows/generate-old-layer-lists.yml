@@ -1,9 +1,8 @@
 name: Generate Old Layer Lists
 
 on: 
+  workflow_dispatch:
   push:
-    branches-ignore:
-      - 'main'
 
 jobs:
   generate-and-commit:
