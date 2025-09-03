@@ -715,6 +715,9 @@ class LayerExporter(object):
                     CharacteristicDataTable = Characteristic.get_editor_property("DataTable")
                     CharacteristicRowName = Characteristic.get_editor_property("RowName")
                     
+                    if CharacteristicRowName == "None":
+                        continue
+
                     characteristics_columns_name = unreal.DataTableFunctionLibrary.get_data_table_column_as_string(
                         CharacteristicDataTable, "DisplayText"
                     )
@@ -1024,22 +1027,6 @@ class LayerExporter(object):
             self.MeleeWeapons.append(wpName)
         return ret
 
-    def GetDestroyedVehiclesClasses(self):
-        print("trying to get destroyed vehicles")
-        asset_filter = unreal.ARFilter(class_names=["BP_SQDestroyedVehicle_C"])
-        rawAssets = self.asset_registry.get_assets(asset_filter)
-        print(rawAssets)
-        for rawAsset in rawAssets:
-            asset = rawAsset.get_asset()
-            # assetName = (
-            #     asset.get_editor_property("Data")
-            #     .get_editor_property("RowName")
-            #     .__str__()
-            # )
-        #     if assetName in self.RequiredOutputFactions:
-        #         self.Factions[assetName] = asset
-        # return self.Factions
-
     def GetDefaultGameSettings(self):
         config_path = unreal.Paths.convert_relative_path_to_full(
             unreal.Paths.combine([unreal.Paths.source_config_dir(), "DefaultGame.ini"])
@@ -1095,8 +1082,6 @@ class LayerExporter(object):
         print("Base Path: " + self.export_path)
         print("Layer JSON Output Path: " + save_path)
         self.GetDefaultGameSettings()
-
-        self.GetDestroyedVehiclesClasses()
 
         self.LoadLevelList()
         print("Number of Levels (Vanilla + MOD): " + str(len(self.LevelAssets)))
