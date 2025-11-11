@@ -9,7 +9,7 @@ LAYER_PREFIX_FILTER = []
 LAYER_SUFFIX_FILTER = []
 
 # If set to True, the output will not have indentation, if set to False, the output will have an indentation of 2 spaces.
-MINIFY_OUTPUT = True
+MINIFY_OUTPUT = False
 
 EXPORT_VEHICLES = True
 EXPORT_ROLES = True
